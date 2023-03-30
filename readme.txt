@@ -1,1 +1,1 @@
-lets have fun!
+amogu
