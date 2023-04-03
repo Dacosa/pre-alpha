@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
 
-const SPEED = 200.0
-const JUMP_VELOCITY = -400.0
-const GRAVITY = 1000
+const DASH_SPEED = 600.0
+const RUN_SPEED = 450
+const JUMP_VELOCITY = -500.0
+const GRAVITY = 1500
 const ACCELERATION = 1000
 
 const MAX_JUMP_TIME = 0.2
@@ -31,6 +32,11 @@ func _physics_process(delta):
 	
 	if is_on_floor():
 		current_airborne_time = 0
+		falling = false
+		
+	if falling and Input.is_action_just_pressed("move_down"):
+		velocity.y = 700
+		
 
 	if Input.is_action_just_pressed("jump") and current_airborne_time < MAX_AIRBORNE_TIME:
 		jumping = true
@@ -48,7 +54,11 @@ func _physics_process(delta):
 
 	var move_input = Input.get_axis("move_left", "move_right")
 	
-	velocity.x = move_input * SPEED
+	if playback.get_current_node() == "DASH":
+		velocity.x = move_input * DASH_SPEED
+	else:
+		velocity.x = move_toward(velocity.x, move_input * RUN_SPEED, ACCELERATION * delta)
+	
 
 	move_and_slide()
 
@@ -56,7 +66,7 @@ func _physics_process(delta):
 	# animation
 	
 	if is_on_floor():
-		if abs(velocity.x) > 10 or move_input:
+		if abs(velocity.x) > 100 or move_input:
 			playback.travel("RUN")
 		else:
 			playback.travel("IDLE")
@@ -64,6 +74,7 @@ func _physics_process(delta):
 		if velocity.y < 0:
 			playback.travel("JUMP")
 		else:
+			falling = true
 			playback.travel("FALL")
 
 	if move_input:
