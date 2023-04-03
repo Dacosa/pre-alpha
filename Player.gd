@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 
 const SPEED = 200.0
-const JUMP_VELOCITY = -150.0
-const GRAVITY = 400
+const JUMP_VELOCITY = -400.0
+const GRAVITY = 1000
 const ACCELERATION = 1000
 
 const MAX_JUMP_TIME = 0.2
@@ -12,6 +12,7 @@ const MAX_AIRBORNE_TIME = 0.1
 var current_jump_time = 0
 var current_airborne_time = 0
 var jumping = false
+var falling = false
 
 
 
@@ -59,13 +60,12 @@ func _physics_process(delta):
 			playback.travel("RUN")
 		else:
 			playback.travel("IDLE")
-	"""
 	else:
 		if velocity.y < 0:
-			playback.travel("jump")
+			playback.travel("JUMP")
 		else:
-			playback.travel("fall")
-	"""
+			playback.travel("FALL")
+
 	if move_input:
 		pivot.scale.x = sign(move_input)
 
