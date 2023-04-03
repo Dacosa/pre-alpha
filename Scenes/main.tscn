@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqkyoy1t37umx"]
+
+[ext_resource type="Texture2D" uid="uid://clb3tjv22woeh" path="res://Assets/AssetPack-V1/Tilemap/Basic Tilemap.png" id="1_m6h75"]
+[ext_resource type="PackedScene" uid="uid://2xq5yk7m3idj" path="res://Scenes/player.tscn" id="2_rojcc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jp3ff"]
+size = Vector2(1540, 105.25)
+
+[node name="Main" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3, -17.625)
+shape = SubResource("RectangleShape2D_jp3ff")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+texture_repeat = 2
+position = Vector2(-0.25, -5)
+texture = ExtResource("1_m6h75")
+region_enabled = true
+region_rect = Rect2(0, 64, 1536, 96)
+
+[node name="Player" parent="." instance=ExtResource("2_rojcc")]
+position = Vector2(3, -105)
