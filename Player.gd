@@ -103,6 +103,8 @@ func _physics_process(delta):
 		if abs(velocity.x) > 100 or move_input_x:
 			direction = move_input_x
 			playback.travel("RUN")
+		elif move_input_y == 1:
+			playback.travel("CROUCHING")
 		else:
 			playback.travel("IDLE")
 	else:
@@ -113,6 +115,8 @@ func _physics_process(delta):
 		else:
 			falling = true
 			playback.travel("FALL")
+
+	print_debug(velocity.y)
 
 	if move_input_x and is_on_floor():
 		pivot.scale.x = sign(move_input_x)
