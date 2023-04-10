@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 
 const DASH_SPEED = 500.0
-const SPIN_SPEED = 1000.0
+const INITIAL_SPIN_SPEED = 1000.0
+const FINAL_SPIN_SPEED = 0
 const RUN_SPEED = 450
 const JUMP_VELOCITY = -500.0
 const GRAVITY = 1500
@@ -18,6 +19,8 @@ var jumping = false
 var falling = false
 var direction = 1
 var landing_count = 0
+var spin_count = 0
+var can_spin = true
 
 
 
@@ -39,6 +42,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		current_airborne_time = 0
 		falling = false
+		can_spin = true
 		
 	#fast fall
 	if falling and Input.is_action_just_pressed("move_down"):
@@ -62,15 +66,18 @@ func _physics_process(delta):
 	var move_input_y = Input.get_axis("move_up", "move_down")
 	
 	#air spin
-	if Input.is_action_just_pressed("air_spin") and not is_on_floor():
-		velocity.x = move_input_x * SPIN_SPEED
-		velocity.y = move_input_y * SPIN_SPEED
-
+	if Input.is_action_just_pressed("air_spin") and not is_on_floor() and can_spin:
+		can_spin = false
+		velocity.x = move_input_x * INITIAL_SPIN_SPEED
+		velocity.y = move_input_y * INITIAL_SPIN_SPEED
+	
+	if playback.get_current_node() == "AIR_SPIN":
+		spin_count += 1
 	
 	if move_input_x != 0:
 		direction = move_input_x
 	
-	#dashdance
+	#dash and dance
 	if playback.get_current_node() == "DASH" and is_on_floor():
 		if velocity.x * direction < 0:
 			playback.start("TURN")
