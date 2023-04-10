@@ -67,7 +67,7 @@ func _physics_process(delta):
 		velocity.y = move_input_y * SPIN_SPEED
 
 	
-	if move_input_x:
+	if move_input_x != 0:
 		direction = move_input_x
 	
 	#dashdance
@@ -76,7 +76,7 @@ func _physics_process(delta):
 			playback.start("TURN")
 		velocity.x = direction * DASH_SPEED
 	else:
-		velocity.x = move_toward(velocity.x, direction * RUN_SPEED, ACCELERATION * delta)
+		velocity.x = move_toward(velocity.x, move_input_x * RUN_SPEED, ACCELERATION * delta)
 	
 	#landing and wavedash??
 	if playback.get_current_node() == "LAND_BEGIN":
@@ -101,7 +101,6 @@ func _physics_process(delta):
 	
 	if is_on_floor():
 		if abs(velocity.x) > 100 or move_input_x:
-			direction = move_input_x
 			playback.travel("RUN")
 		elif move_input_y == 1:
 			playback.travel("CROUCHING")
@@ -116,7 +115,6 @@ func _physics_process(delta):
 			falling = true
 			playback.travel("FALL")
 
-	print_debug(velocity.y)
 
 	if move_input_x and is_on_floor():
 		pivot.scale.x = sign(move_input_x)

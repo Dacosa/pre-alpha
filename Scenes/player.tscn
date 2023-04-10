@@ -54,7 +54,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_77nwn"]
 resource_name = "DASH"
-length = 0.5
+length = 0.2
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -63,10 +63,10 @@ tracks/0/path = NodePath("Pivot/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1, 1, 1, 2]
+"values": [1, 2]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -632,9 +632,6 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vlp6h"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cpukj"]
-switch_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oiebc"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3uhxl"]
@@ -672,6 +669,9 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o5wev"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cpukj"]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_130hc"]
 states/CROUCHING/node = SubResource("AnimationNodeAnimation_7ruwu")
 states/CROUCHING/position = Vector2(60, -252)
@@ -697,8 +697,8 @@ states/RUN/position = Vector2(559, 13)
 states/Start/position = Vector2(-150, 45)
 states/TURN/node = SubResource("AnimationNodeAnimation_p1qd2")
 states/TURN/position = Vector2(155, -182)
-transitions = ["Start", "IDLE", SubResource("AnimationNodeStateMachineTransition_uvnbv"), "IDLE", "JUMP", SubResource("AnimationNodeStateMachineTransition_hus5u"), "RUN", "JUMP", SubResource("AnimationNodeStateMachineTransition_vlp6h"), "JUMP", "MAX_HEIGHT", SubResource("AnimationNodeStateMachineTransition_cpukj"), "MAX_HEIGHT", "FALL", SubResource("AnimationNodeStateMachineTransition_oiebc"), "RUN", "FALL", SubResource("AnimationNodeStateMachineTransition_3uhxl"), "IDLE", "DASH", SubResource("AnimationNodeStateMachineTransition_dkkkj"), "DASH", "RUN", SubResource("AnimationNodeStateMachineTransition_3iwad"), "RUN", "IDLE", SubResource("AnimationNodeStateMachineTransition_7xvu5"), "FALL", "LAND_BEGIN", SubResource("AnimationNodeStateMachineTransition_00jiu"), "LAND_BEGIN", "LAND_END", SubResource("AnimationNodeStateMachineTransition_ocbp4"), "LAND_END", "IDLE", SubResource("AnimationNodeStateMachineTransition_alx25"), "LAND_SPIN", "IDLE", SubResource("AnimationNodeStateMachineTransition_murye"), "DASH", "IDLE", SubResource("AnimationNodeStateMachineTransition_4jtiv"), "DASH", "TURN", SubResource("AnimationNodeStateMachineTransition_40mo7"), "TURN", "DASH", SubResource("AnimationNodeStateMachineTransition_kk6dw"), "DASH", "JUMP", SubResource("AnimationNodeStateMachineTransition_tyji5"), "CROUCHING", "JUMP", SubResource("AnimationNodeStateMachineTransition_37s5k"), "IDLE", "CROUCHING", SubResource("AnimationNodeStateMachineTransition_h1a1y"), "CROUCHING", "IDLE", SubResource("AnimationNodeStateMachineTransition_o5wev")]
-graph_offset = Vector2(-410, -235)
+transitions = ["Start", "IDLE", SubResource("AnimationNodeStateMachineTransition_uvnbv"), "IDLE", "JUMP", SubResource("AnimationNodeStateMachineTransition_hus5u"), "RUN", "JUMP", SubResource("AnimationNodeStateMachineTransition_vlp6h"), "MAX_HEIGHT", "FALL", SubResource("AnimationNodeStateMachineTransition_oiebc"), "RUN", "FALL", SubResource("AnimationNodeStateMachineTransition_3uhxl"), "IDLE", "DASH", SubResource("AnimationNodeStateMachineTransition_dkkkj"), "DASH", "RUN", SubResource("AnimationNodeStateMachineTransition_3iwad"), "RUN", "IDLE", SubResource("AnimationNodeStateMachineTransition_7xvu5"), "FALL", "LAND_BEGIN", SubResource("AnimationNodeStateMachineTransition_00jiu"), "LAND_BEGIN", "LAND_END", SubResource("AnimationNodeStateMachineTransition_ocbp4"), "LAND_END", "IDLE", SubResource("AnimationNodeStateMachineTransition_alx25"), "LAND_SPIN", "IDLE", SubResource("AnimationNodeStateMachineTransition_murye"), "DASH", "IDLE", SubResource("AnimationNodeStateMachineTransition_4jtiv"), "DASH", "TURN", SubResource("AnimationNodeStateMachineTransition_40mo7"), "TURN", "DASH", SubResource("AnimationNodeStateMachineTransition_kk6dw"), "DASH", "JUMP", SubResource("AnimationNodeStateMachineTransition_tyji5"), "CROUCHING", "JUMP", SubResource("AnimationNodeStateMachineTransition_37s5k"), "IDLE", "CROUCHING", SubResource("AnimationNodeStateMachineTransition_h1a1y"), "CROUCHING", "IDLE", SubResource("AnimationNodeStateMachineTransition_o5wev"), "JUMP", "MAX_HEIGHT", SubResource("AnimationNodeStateMachineTransition_cpukj")]
+graph_offset = Vector2(-179, -217)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_peu0t"]
 
