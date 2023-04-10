@@ -15,7 +15,7 @@ var current_jump_time = 0
 var current_airborne_time = 0
 var jumping = false
 var falling = false
-var direction
+var direction = 1
 var landing_count = 0
 
 
@@ -66,12 +66,15 @@ func _physics_process(delta):
 		velocity.y = move_input_y * SPIN_SPEED
 
 	
+	if move_input_x:
+		direction = move_input_x
 	
-	
-	if playback.get_current_node() == "DASH":
-		velocity.x = move_input_x * DASH_SPEED
+	if playback.get_current_node() == "DASH" and is_on_floor():
+		if velocity.x * direction < 0:
+			playback.start("TURN")
+		velocity.x = direction * DASH_SPEED
 	else:
-		velocity.x = move_toward(velocity.x, move_input_x * RUN_SPEED, ACCELERATION * delta)
+		velocity.x = move_toward(velocity.x, direction * RUN_SPEED, ACCELERATION * delta)
 	
 	if playback.get_current_node() == "LAND_BEGIN":
 		#after x amount of frames, allow moving 
@@ -100,8 +103,8 @@ func _physics_process(delta):
 		else:
 			playback.travel("IDLE")
 	else:
-		if Input.is_action_just_pressed("air_spin"):
-			playback.travel("AIR_SPIN")
+		#if Input.is_action_just_pressed("air_spin"):
+		#	playback.travel("AIR_SPIN")
 		if velocity.y < 0:
 			playback.travel("JUMP")
 		else:
