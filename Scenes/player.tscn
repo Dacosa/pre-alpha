@@ -1,61 +1,27 @@
-[gd_scene load_steps=53 format=3 uid="uid://2xq5yk7m3idj"]
+
+[gd_scene load_steps=36 format=3 uid="uid://2xq5yk7m3idj"]
+
 
 [ext_resource type="Script" path="res://Player.gd" id="1_5gb51"]
 [ext_resource type="Texture2D" uid="uid://clup0f4c3sfea" path="res://Assets/AssetPack-V1/Sprite Sheets/Character Idle 48x48.png" id="2_rhjl5"]
 [ext_resource type="Texture2D" uid="uid://c4xyvg7kkdanv" path="res://Assets/AssetPack-V1/Sprite Sheets/run cycle 48x48.png" id="3_uxx3o"]
 [ext_resource type="Texture2D" uid="uid://bvqna7ls5cx31" path="res://Assets/AssetPack-V1/Sprite Sheets/player jump 48x48.png" id="4_knm3t"]
 [ext_resource type="Texture2D" uid="uid://chh2oukwp1ux7" path="res://Assets/AssetPack-V1/Sprite Sheets/player land 48x48.png" id="5_ipaka"]
+[ext_resource type="PackedScene" uid="uid://b120m3tynpm8" path="res://UI/pause_menu.tscn" id="6_6xx6l"]
 [ext_resource type="Texture2D" uid="uid://dqvqfwqg80bd1" path="res://Assets/Asset Pack-V2/Air Spin/player air spin 48x48.png" id="6_w0jnk"]
 [ext_resource type="Texture2D" uid="uid://bv15qf3c51bnt" path="res://Assets/Asset Pack-V2/Player Roll/Player Roll 48x48.png" id="7_eo0oj"]
 [ext_resource type="Texture2D" uid="uid://b1s0aw4w1217r" path="res://Assets/AssetPack-V1/Sprite Sheets/Wall Slide 48x48.png" id="8_obj8n"]
 
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0nq2g"]
 radius = 6.0
+
 
 [sub_resource type="Animation" id="Animation_77nwn"]
 resource_name = "DASH"
 length = 0.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 1, 1, 2]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/Sprite2D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_uxx3o")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Pivot/Sprite2D:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
 
-[sub_resource type="Animation" id="Animation_airu0"]
-resource_name = "DASH(test)"
-length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -63,10 +29,58 @@ tracks/0/path = NodePath("Pivot/Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
+
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 1, 1, 2]
+
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "update": 1,
+
+"values": [ExtResource("3_uxx3o")]
+
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_airu0"]
+resource_name = "DASH(test)"
+length = 0.6
+
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+
 "values": [ExtResource("8_obj8n")]
+
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -134,9 +148,11 @@ tracks/2/keys = {
 "values": [2]
 }
 
+
 [sub_resource type="Animation" id="Animation_v5a6u"]
 resource_name = "IDLE"
 loop_mode = 1
+
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -147,7 +163,9 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
+
 "values": [ExtResource("2_rhjl5")]
+
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -159,7 +177,9 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
+
 "values": [10]
+
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -168,6 +188,7 @@ tracks/2/path = NodePath("Pivot/Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -177,6 +198,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_sks3p"]
 resource_name = "JUMP"
 length = 0.6
+
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -187,7 +209,9 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
+
 "values": [ExtResource("6_w0jnk")]
+
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -199,7 +223,9 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
+
 "values": [6]
+
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -208,6 +234,7 @@ tracks/2/path = NodePath("Pivot/Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -226,8 +253,9 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+
 "update": 1,
-"values": [0]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -341,33 +369,38 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Pivot/Sprite2D:texture")
+
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
+
 "values": [ExtResource("7_eo0oj")]
+
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/Sprite2D:hframes")
+tracks/1/path = NodePath("Pivot/Sprite2D:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
+
 "values": [7]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Pivot/Sprite2D:frame")
+tracks/2/path = NodePath("Pivot/Sprite2D:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -456,6 +489,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_p4n16"]
 resource_name = "RUN"
 length = 0.9
+
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -531,6 +565,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
+
 "values": [2]
 }
 
@@ -675,3 +710,7 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_130hc")
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_peu0t")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_6xx6l")]
