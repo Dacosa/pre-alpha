@@ -1,8 +1,0 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cym6n88rrqd2k"]
-
-[ext_resource type="FontFile" uid="uid://hh781cthlgfj" path="res://resources/Font/magofonts/mago3.ttf" id="1_es8c1"]
-
-[resource]
-default_font = ExtResource("1_es8c1")
-Label/font_sizes/font_size = 16
-Label/fonts/font = ExtResource("1_es8c1")
