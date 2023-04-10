@@ -7,6 +7,7 @@ const RUN_SPEED = 450
 const JUMP_VELOCITY = -500.0
 const GRAVITY = 1500
 const ACCELERATION = 2000
+const AIR_DRIFT = 300
 
 const MAX_JUMP_TIME = 0.2
 const MAX_AIRBORNE_TIME = 0.1
@@ -69,6 +70,7 @@ func _physics_process(delta):
 	if move_input_x:
 		direction = move_input_x
 	
+	#dashdance
 	if playback.get_current_node() == "DASH" and is_on_floor():
 		if velocity.x * direction < 0:
 			playback.start("TURN")
@@ -76,6 +78,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, direction * RUN_SPEED, ACCELERATION * delta)
 	
+	#landing and wavedash??
 	if playback.get_current_node() == "LAND_BEGIN":
 		#after x amount of frames, allow moving 
 		##implement wavedash here
