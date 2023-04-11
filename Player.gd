@@ -2,10 +2,11 @@ extends CharacterBody2D
 
 
 const DASH_SPEED = 500.0
-const INITIAL_SPIN_SPEED = 1000.0
+const DODGE_SPEED = 1000.0
 const FINAL_SPIN_SPEED = 0
 const RUN_SPEED = 450
 const JUMP_VELOCITY = -500.0
+const SECOND_JUMP_VELOCITY = -700.0
 const GRAVITY = 1500
 const ACCELERATION = 2000
 const AIR_DRIFT = 300
@@ -19,8 +20,10 @@ var jumping = false
 var falling = false
 var direction = 1
 var landing_count = 0
-var spin_count = 0
-var can_spin = true
+var dodge_count = 0
+var second_jump = true
+var jump_count = 0
+var dodged = false
 
 
 
@@ -42,7 +45,8 @@ func _physics_process(delta):
 	if is_on_floor():
 		current_airborne_time = 0
 		falling = false
-		can_spin = true
+		second_jump = true
+		dodge_count = 0
 		
 	#fast fall
 	if falling and Input.is_action_just_pressed("move_down"):
@@ -61,18 +65,28 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_released("jump"):
 		jumping = false
-		
+	
+	#second jump
+	if Input.is_action_just_pressed("jump") and not is_on_floor() and second_jump:
+		velocity.y = SECOND_JUMP_VELOCITY
+		second_jump = false
+	
+	#move input vars
 	var move_input_x = Input.get_axis("move_left", "move_right")
 	var move_input_y = Input.get_axis("move_up", "move_down")
 	
 	#air spin
-	if Input.is_action_just_pressed("air_spin") and not is_on_floor() and can_spin:
-		can_spin = false
-		velocity.x = move_input_x * INITIAL_SPIN_SPEED
-		velocity.y = move_input_y * INITIAL_SPIN_SPEED
+	if Input.is_action_just_pressed("air_dodge") and not is_on_floor() and dodge_count == 0:
+		velocity.x = move_input_x * DODGE_SPEED
+		velocity.y = move_input_y * DODGE_SPEED
 	
-	if playback.get_current_node() == "AIR_SPIN":
-		spin_count += 1
+	if playback.get_current_node() == "AIR_DODGE":
+		if dodge_count < 20:
+			dodge_count += 1
+			velocity *= 0.99
+		elif dodge_count == 25:
+			velocity.x *= 1/5
+
 	
 	if move_input_x != 0:
 		direction = move_input_x
@@ -103,10 +117,11 @@ func _physics_process(delta):
 		
 	move_and_slide()
 
-	
 	# animation
 	
 	if is_on_floor():
+		jump_count = 0
+		dodged = false
 		if abs(velocity.x) > 100 or move_input_x:
 			playback.travel("RUN")
 		elif move_input_y == 1:
@@ -116,15 +131,17 @@ func _physics_process(delta):
 	else:
 		#if Input.is_action_just_pressed("air_spin"):
 		#	playback.travel("AIR_SPIN")
-		if velocity.y < 0:
+		if Input.is_action_just_pressed("jump") and jump_count < 2:
+			jump_count += 1
 			playback.travel("JUMP")
-		else:
+		elif Input.is_action_just_pressed("air_dodge") and not dodged:
+			jump_count = 2
+			dodged = true
+			playback.start("AIR_DODGE")
+		elif velocity.y > 0:
 			falling = true
 			playback.travel("FALL")
 
-
 	if move_input_x and is_on_floor():
 		pivot.scale.x = sign(move_input_x)
-
-
-
+		
