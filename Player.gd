@@ -85,7 +85,7 @@ func _physics_process(delta):
 			dodge_count += 1
 			velocity *= 0.99
 		elif dodge_count == 25:
-			velocity.x *= 1/5
+			velocity.x *= 0.2
 
 	
 	if move_input_x != 0:
