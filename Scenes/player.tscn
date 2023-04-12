@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=69 format=3 uid="uid://2xq5yk7m3idj"]
+
 
 [ext_resource type="Script" path="res://Player.gd" id="1_5gb51"]
 [ext_resource type="Texture2D" uid="uid://clup0f4c3sfea" path="res://Assets/AssetPack-V1/Sprite Sheets/Character Idle 48x48.png" id="2_rhjl5"]
@@ -7,8 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://chh2oukwp1ux7" path="res://Assets/AssetPack-V1/Sprite Sheets/player land 48x48.png" id="5_ipaka"]
 [ext_resource type="Texture2D" uid="uid://dqvqfwqg80bd1" path="res://Assets/Asset Pack-V2/Air Spin/player air spin 48x48.png" id="6_w0jnk"]
 [ext_resource type="Texture2D" uid="uid://bv15qf3c51bnt" path="res://Assets/Asset Pack-V2/Player Roll/Player Roll 48x48.png" id="7_eo0oj"]
+
 [ext_resource type="Texture2D" uid="uid://g6v7upk22cnp" path="res://Assets/Asset Pack-V3/Player Punch/Player Punch 64x64.png" id="9_672is"]
 [ext_resource type="Texture2D" uid="uid://cwnflsdw2q17u" path="res://Assets/Asset Pack-V3/Player Hurt-Damaged/Player Hurt 48x48.png" id="9_iufth"]
+
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0nq2g"]
 radius = 6.0
@@ -797,3 +801,7 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_130hc")
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_peu0t")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_lmj24")]
