@@ -126,6 +126,8 @@ func _physics_process(delta):
 			playback.travel("RUN")
 		elif move_input_y == 1:
 			playback.travel("CROUCHING")
+		elif Input.is_action_just_pressed("attack"):
+			playback.travel("PUNCH")
 		else:
 			playback.travel("IDLE")
 	else:
