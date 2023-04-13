@@ -147,3 +147,6 @@ func _physics_process(delta):
 	if move_input_x and is_on_floor():
 		pivot.scale.x = sign(move_input_x)
 		
+
+
+
