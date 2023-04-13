@@ -1,7 +1,8 @@
-[gd_scene load_steps=69 format=3 uid="uid://2xq5yk7m3idj"]
+[gd_scene load_steps=71 format=3 uid="uid://2xq5yk7m3idj"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_5gb51"]
 [ext_resource type="Texture2D" uid="uid://clup0f4c3sfea" path="res://Assets/AssetPack-V1/Sprite Sheets/Character Idle 48x48.png" id="2_rhjl5"]
+[ext_resource type="PackedScene" uid="uid://b0mfkr670s7ls" path="res://Scenes/Hitbox.tscn" id="3_ge1uf"]
 [ext_resource type="Texture2D" uid="uid://c4xyvg7kkdanv" path="res://Assets/AssetPack-V1/Sprite Sheets/run cycle 48x48.png" id="3_uxx3o"]
 [ext_resource type="Texture2D" uid="uid://bvqna7ls5cx31" path="res://Assets/AssetPack-V1/Sprite Sheets/player jump 48x48.png" id="4_knm3t"]
 [ext_resource type="Texture2D" uid="uid://chh2oukwp1ux7" path="res://Assets/AssetPack-V1/Sprite Sheets/player land 48x48.png" id="5_ipaka"]
@@ -9,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://bv15qf3c51bnt" path="res://Assets/Asset Pack-V2/Player Roll/Player Roll 48x48.png" id="7_eo0oj"]
 [ext_resource type="Texture2D" uid="uid://g6v7upk22cnp" path="res://Assets/Asset Pack-V3/Player Punch/Player Punch 64x64.png" id="9_672is"]
 [ext_resource type="Texture2D" uid="uid://cwnflsdw2q17u" path="res://Assets/Asset Pack-V3/Player Hurt-Damaged/Player Hurt 48x48.png" id="9_iufth"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5nvh0"]
+radius = 7.0
+height = 26.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0nq2g"]
 radius = 6.0
@@ -213,6 +218,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/PuchHitbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_sks3p"]
@@ -458,7 +475,6 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_bh8ik"]
 resource_name = "PUNCH"
 length = 0.8
-loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -494,6 +510,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/PuchHitbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, true, true, false, false, true, true]
 }
 
 [sub_resource type="Animation" id="Animation_cfytn"]
@@ -533,6 +561,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [ExtResource("2_rhjl5")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/PuchHitbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_p4n16"]
@@ -782,11 +822,16 @@ position = Vector2(1, 0)
 texture = ExtResource("2_rhjl5")
 hframes = 10
 
+[node name="PuchHitbox" parent="Pivot" instance=ExtResource("3_ge1uf")]
+
+[node name="CollisionShape2D" parent="Pivot/PuchHitbox" index="0"]
+position = Vector2(20, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5nvh0")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_0nq2g")
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -797,3 +842,5 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_130hc")
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_peu0t")
+
+[editable path="Pivot/PuchHitbox"]

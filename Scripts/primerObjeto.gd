@@ -1,14 +1,10 @@
 extends RigidBody2D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 		
+func _on_area_2d_area_entered(_area):
+	push(1000)
+	
 func push(force : int):
-	apply_central_impulse(Vector2(1000,0))
+	apply_central_impulse(Vector2(force,0))
+
