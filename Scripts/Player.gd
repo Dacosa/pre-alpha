@@ -24,6 +24,7 @@ var dodge_count = 0
 var second_jump = true
 var jump_count = 0
 var dodged = false
+var strength = 1000
 
 
 
@@ -31,10 +32,12 @@ var dodged = false
 @onready var animation_player = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
+@onready var punch_hitbox = $Pivot/PuchHitbox
 
 func _ready():
 	animation_tree.active = true
-#	Engine.time_scale = 0.2
+	punch_hitbox.body_entered.connect(_on_body_entered)
+#	Engine.time_scale = 0.2		
 
 func hit():
 	pass
@@ -91,7 +94,7 @@ func _physics_process(delta):
 		elif dodge_count == 25:
 			velocity.x *= 0.2
 	"""
-	
+	#Change direction
 	if move_input_x != 0:
 		direction = move_input_x
 	
@@ -153,5 +156,7 @@ func _physics_process(delta):
 		pivot.scale.x = sign(move_input_x)
 		
 
-
+func _on_body_entered(body: Node):
+	if body.has_method("push"):
+		body.push(strength * direction, Input.get_vector("move_left", "move_right", "move_up", "move_down"))
 

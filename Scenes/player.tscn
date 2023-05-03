@@ -814,6 +814,8 @@ graph_offset = Vector2(-398, -218)
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_peu0t"]
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_5gb51")
 
 [node name="Pivot" type="Node2D" parent="."]
@@ -824,6 +826,8 @@ texture = ExtResource("2_rhjl5")
 hframes = 10
 
 [node name="PuchHitbox" parent="Pivot" instance=ExtResource("3_ge1uf")]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" parent="Pivot/PuchHitbox" index="0"]
 position = Vector2(20, -1)
