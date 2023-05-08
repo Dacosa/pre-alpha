@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://csyuh64ak4dcg"]
+
+[ext_resource type="Script" path="res://Scripts/pickablebox.gd" id="1_iw3ul"]
+[ext_resource type="Texture2D" uid="uid://psm1dnedqwge" path="res://Assets/Vermin Free Asset Pack/Animations/Infected Mouse/InfectedMouseIdleSide.png" id="2_8k03c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81jlv"]
+
+[sub_resource type="Animation" id="Animation_mva4u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_n8xmr"]
+resource_name = "idle"
+length = 4.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rifl1"]
+_data = {
+"RESET": SubResource("Animation_mva4u"),
+"idle": SubResource("Animation_n8xmr")
+}
+
+[node name="pickablebox" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 9
+freeze_mode = 1
+script = ExtResource("1_iw3ul")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_81jlv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_rifl1")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -6)
+scale = Vector2(2, 2)
+texture = ExtResource("2_8k03c")
+hframes = 4
