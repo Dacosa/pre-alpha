@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://2xq5yk7m3idj"]
+[gd_scene load_steps=73 format=3 uid="uid://2xq5yk7m3idj"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_5gb51"]
 [ext_resource type="Texture2D" uid="uid://clup0f4c3sfea" path="res://Assets/AssetPack-V1/Sprite Sheets/Character Idle 48x48.png" id="2_rhjl5"]
@@ -813,6 +813,9 @@ graph_offset = Vector2(-398, -218)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_peu0t"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g00px"]
+radius = 33.0151
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 3
 collision_mask = 3
@@ -834,6 +837,9 @@ position = Vector2(20, -1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5nvh0")
 
+[node name="pickablemarker" type="Marker2D" parent="Pivot"]
+position = Vector2(0, -18)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_0nq2g")
@@ -851,5 +857,12 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_peu0t")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_kjvca")]
+
+[node name="pickablearea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickablearea"]
+shape = SubResource("CircleShape2D_g00px")
 
 [editable path="Pivot/PuchHitbox"]

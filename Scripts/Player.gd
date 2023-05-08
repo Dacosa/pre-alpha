@@ -26,6 +26,8 @@ var jump_count = 0
 var dodged = false
 var strength = 1000
 
+var pickable: Pickable = null
+var grabbed = false
 
 
 @onready var pivot = $Pivot
@@ -34,10 +36,23 @@ var strength = 1000
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var punch_hitbox = $Pivot/PuchHitbox
 
+
+@onready var pickablemarker = $Pivot/pickablemarker
+@onready var pickablearea = $pickablearea
+
+
 func _ready():
 	animation_tree.active = true
+
 	punch_hitbox.body_entered.connect(_on_body_entered)
 #	Engine.time_scale = 0.2		
+
+
+	
+	#Pickable
+	pickablearea.body_entered.connect(_on_pickable_enter)
+	pickablearea.body_exited.connect(_on_pickable_exit)
+#	Engine.time_scale = 0.2
 
 func hit():
 	pass
@@ -155,8 +170,27 @@ func _physics_process(delta):
 	if move_input_x and is_on_floor():
 		pivot.scale.x = sign(move_input_x)
 		
+	
+	#Pickable
+	if Input.is_action_just_pressed("Pick") and pickable:
+		grabbed = !grabbed
+		pickable.freeze = grabbed
+		
+	if pickable and grabbed:
+		pickable.global_position = lerp(pickable.global_position, pickablemarker.global_position , 0.4)
+
 
 func _on_body_entered(body: Node):
 	if body.has_method("push"):
 		body.push(strength * direction, Input.get_vector("move_left", "move_right", "move_up", "move_down"))
+
+
+# Pickable object
+func _on_pickable_enter(body: Node):
+	if body is Pickable and not grabbed:
+		pickable = body
+
+func _on_pickable_exit(body: Node):
+	if body == pickable and not grabbed:
+		pickable = null
 
