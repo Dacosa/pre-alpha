@@ -172,7 +172,7 @@ func _physics_process(delta):
 		
 	
 	#Pickable
-	if Input.is_action_just_pressed("Pick") and pickable:
+	if Input.is_action_just_pressed("pick") and pickable:
 		grabbed = !grabbed
 		pickable.freeze = grabbed
 		
