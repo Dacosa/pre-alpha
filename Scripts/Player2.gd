@@ -179,7 +179,6 @@ func _physics_process(delta):
 	if pickable and grabbed:
 		pickable.global_position = lerp(pickable.global_position, pickablemarker.global_position , 0.4)
 		
-	print("player2:", move_input_x, move_input_y)
 	
 	
 
