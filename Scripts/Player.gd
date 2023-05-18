@@ -191,6 +191,8 @@ func _physics_process(delta):
 		
 	if pickable and grabbed:
 		pickable.global_position = lerp(pickable.global_position, pickablemarker.global_position , 0.4)
+		
+	healthbar.global_position = pickablemarker.global_position
 
 
 
