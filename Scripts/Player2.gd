@@ -29,6 +29,11 @@ var strength = 1000
 var pickable: Pickable = null
 var grabbed = false
 
+var max_x = 0.3 
+var min_x = -0.3 
+var max_y = 0.3 
+var min_y = -0.3 
+
 
 @onready var pivot = $Pivot
 @onready var animation_player = $AnimationPlayer
@@ -96,6 +101,20 @@ func _physics_process(delta):
 	var move_input_x = Input.get_axis("move_left2", "move_right2")
 	var move_input_y = Input.get_axis("move_up2", "move_down2")
 	
+		#fix controller values
+	if move_input_x > 0:
+		max_x = max(max_x, move_input_x)
+		move_input_x /= max_x
+	else:
+		min_x = min(min_x, move_input_x)
+		move_input_x /= -min_x
+	if move_input_y > 0:
+		max_y = max(max_y, move_input_y)
+		move_input_y /= max_y
+	else:
+		min_y = min(min_y, move_input_y)
+		move_input_y /= -min_y
+	
 	#air spin
 	"""
 	if Input.is_action_just_pressed("air_dodge") and not is_on_floor() and dodge_count == 0:
@@ -146,7 +165,7 @@ func _physics_process(delta):
 		dodged = false
 		if abs(velocity.x) > 100 or move_input_x:
 			playback.travel("RUN")
-		elif move_input_y == 1:
+		elif move_input_y > 0.7:
 			playback.travel("CROUCHING")
 		elif Input.is_action_just_pressed("attack2"):
 			playback.travel("PUNCH")
