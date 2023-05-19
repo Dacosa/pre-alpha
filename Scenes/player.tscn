@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://2xq5yk7m3idj"]
+[gd_scene load_steps=74 format=3 uid="uid://dvnt6bf4o56gb"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_5gb51"]
 [ext_resource type="Texture2D" uid="uid://clup0f4c3sfea" path="res://Assets/AssetPack-V1/Sprite Sheets/Character Idle 48x48.png" id="2_rhjl5"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bv15qf3c51bnt" path="res://Assets/Asset Pack-V2/Player Roll/Player Roll 48x48.png" id="7_eo0oj"]
 [ext_resource type="Texture2D" uid="uid://g6v7upk22cnp" path="res://Assets/Asset Pack-V3/Player Punch/Player Punch 64x64.png" id="9_672is"]
 [ext_resource type="Texture2D" uid="uid://cwnflsdw2q17u" path="res://Assets/Asset Pack-V3/Player Hurt-Damaged/Player Hurt 48x48.png" id="9_iufth"]
+[ext_resource type="PackedScene" uid="uid://bu010pigrp6cn" path="res://UI/healthbar.tscn" id="11_i6nxp"]
 [ext_resource type="PackedScene" uid="uid://b120m3tynpm8" path="res://UI/pause_menu.tscn" id="11_kjvca"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5nvh0"]
@@ -856,6 +857,8 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_peu0t")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="healthbar" parent="CanvasLayer" instance=ExtResource("11_i6nxp")]
+
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_kjvca")]
 
 [node name="pickablearea" type="Area2D" parent="."]
@@ -864,5 +867,10 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickablearea"]
 shape = SubResource("CircleShape2D_g00px")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="Pivot/PuchHitbox"]

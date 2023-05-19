@@ -1,7 +1,9 @@
+
 [gd_scene load_steps=16 format=3 uid="uid://bi808k403yhv3"]
 
 [ext_resource type="PackedScene" uid="uid://2xq5yk7m3idj" path="res://Scenes/player.tscn" id="2_rojcc"]
 [ext_resource type="PackedScene" uid="uid://b8jgplaunof4n" path="res://Scenes/player2.tscn" id="3_5q3rs"]
+
 [ext_resource type="Texture2D" uid="uid://b2p3nuyd08ksn" path="res://Assets/Adve tileset/tiles.png" id="3_hkt7m"]
 [ext_resource type="Texture2D" uid="uid://bess2p3kb1xfi" path="res://Assets/Image10000_scaled_4x_pngcrushed.png" id="4_41bsd"]
 [ext_resource type="Script" path="res://Scripts/Player2.gd" id="4_gq1ad"]
@@ -9,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bnea8t7vqcmj5" path="res://Scenes/Hurtbox.tscn" id="5_1ihx6"]
 [ext_resource type="Texture2D" uid="uid://dtu40hnx5ywtp" path="res://Assets/bg.jpg" id="6_h0udu"]
 [ext_resource type="PackedScene" uid="uid://csyuh64ak4dcg" path="res://Scenes/pickable.tscn" id="7_wd8we"]
+[ext_resource type="PackedScene" uid="uid://wooqlqccvcu6" path="res://Scenes/damage_area_mole.tscn" id="8_my85j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xw5qx"]
 texture = ExtResource("3_hkt7m")
@@ -602,10 +605,13 @@ shape = SubResource("RectangleShape2D_q6vqf")
 position = Vector2(18, -124)
 
 [node name="pickablebox" parent="." instance=ExtResource("7_wd8we")]
-position = Vector2(-258, -85)
+position = Vector2(-258, -79)
 
 [node name="pickablebox2" parent="." instance=ExtResource("7_wd8we")]
-position = Vector2(-217, -85)
+position = Vector2(-217, -79)
+
+[node name="DamageArea_Mole" parent="." instance=ExtResource("8_my85j")]
+position = Vector2(-313, -79)
 
 [connection signal="area_entered" from="Objeto/Area2D" to="Objeto" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Objeto2/Area2D" to="Objeto2" method="_on_area_2d_area_entered"]
