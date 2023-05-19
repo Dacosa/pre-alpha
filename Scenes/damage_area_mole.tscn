@@ -1,0 +1,113 @@
+[gd_scene load_steps=7 format=3 uid="uid://wooqlqccvcu6"]
+
+[ext_resource type="Script" path="res://Scripts/damage_area_mole.gd" id="1_gmjsw"]
+[ext_resource type="Texture2D" uid="uid://cl0klsmyj7m83" path="res://Assets/Vermin Free Asset Pack/Animations/Tunneling Mole/TunnelingMoleSideIdle.png" id="1_h0h8l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ib8uw"]
+size = Vector2(18, 21)
+
+[sub_resource type="Animation" id="Animation_alo1r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 5)]
+}
+
+[sub_resource type="Animation" id="Animation_birq8"]
+resource_name = "standard"
+length = 8.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1e-05, 1e-05),
+"update": 0,
+"values": [Vector2(-2, 2), Vector2(2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1.5797e-05, 1e-05),
+"update": 0,
+"values": [Vector2(-3, 5), Vector2(3, 5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6mxc8"]
+_data = {
+"RESET": SubResource("Animation_alo1r"),
+"standard": SubResource("Animation_birq8")
+}
+
+[node name="DamageArea_Mole" type="Area2D"]
+script = ExtResource("1_gmjsw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 5)
+shape = SubResource("RectangleShape2D_ib8uw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(-2, 2)
+texture = ExtResource("1_h0h8l")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "standard"
+libraries = {
+"": SubResource("AnimationLibrary_6mxc8")
+}
