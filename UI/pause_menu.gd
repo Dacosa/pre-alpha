@@ -13,7 +13,7 @@ func _ready():
 	hide()
 
 func _input(event):
-	if event.is_action_pressed("Pause"):
+	if event.is_action_pressed("Pause") or event.is_action_pressed("Pause2"):
 		show()
 		get_tree().paused = true
 

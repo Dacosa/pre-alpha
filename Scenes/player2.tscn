@@ -1,17 +1,15 @@
-[gd_scene load_steps=74 format=3 uid="uid://dvnt6bf4o56gb"]
+[gd_scene load_steps=72 format=3 uid="uid://b8jgplaunof4n"]
 
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_5gb51"]
-[ext_resource type="Texture2D" uid="uid://clup0f4c3sfea" path="res://Assets/AssetPack-V1/Sprite Sheets/Character Idle 48x48.png" id="2_rhjl5"]
-[ext_resource type="PackedScene" uid="uid://b0mfkr670s7ls" path="res://Scenes/Hitbox.tscn" id="3_ge1uf"]
-[ext_resource type="Texture2D" uid="uid://c4xyvg7kkdanv" path="res://Assets/AssetPack-V1/Sprite Sheets/run cycle 48x48.png" id="3_uxx3o"]
-[ext_resource type="Texture2D" uid="uid://bvqna7ls5cx31" path="res://Assets/AssetPack-V1/Sprite Sheets/player jump 48x48.png" id="4_knm3t"]
-[ext_resource type="Texture2D" uid="uid://chh2oukwp1ux7" path="res://Assets/AssetPack-V1/Sprite Sheets/player land 48x48.png" id="5_ipaka"]
-[ext_resource type="Texture2D" uid="uid://dqvqfwqg80bd1" path="res://Assets/Asset Pack-V2/Air Spin/player air spin 48x48.png" id="6_w0jnk"]
-[ext_resource type="Texture2D" uid="uid://bv15qf3c51bnt" path="res://Assets/Asset Pack-V2/Player Roll/Player Roll 48x48.png" id="7_eo0oj"]
-[ext_resource type="Texture2D" uid="uid://g6v7upk22cnp" path="res://Assets/Asset Pack-V3/Player Punch/Player Punch 64x64.png" id="9_672is"]
-[ext_resource type="Texture2D" uid="uid://cwnflsdw2q17u" path="res://Assets/Asset Pack-V3/Player Hurt-Damaged/Player Hurt 48x48.png" id="9_iufth"]
-[ext_resource type="PackedScene" uid="uid://bu010pigrp6cn" path="res://UI/healthbar.tscn" id="11_i6nxp"]
-[ext_resource type="PackedScene" uid="uid://b120m3tynpm8" path="res://UI/pause_menu.tscn" id="11_kjvca"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_erb0d"]
+[ext_resource type="Texture2D" uid="uid://clup0f4c3sfea" path="res://Assets/AssetPack-V1/Sprite Sheets/Character Idle 48x48.png" id="2_8apwy"]
+[ext_resource type="PackedScene" uid="uid://b0mfkr670s7ls" path="res://Scenes/Hitbox.tscn" id="3_3qpbh"]
+[ext_resource type="Texture2D" uid="uid://cwnflsdw2q17u" path="res://Assets/Asset Pack-V3/Player Hurt-Damaged/Player Hurt 48x48.png" id="4_e1rc2"]
+[ext_resource type="Texture2D" uid="uid://chh2oukwp1ux7" path="res://Assets/AssetPack-V1/Sprite Sheets/player land 48x48.png" id="5_dfej1"]
+[ext_resource type="Texture2D" uid="uid://c4xyvg7kkdanv" path="res://Assets/AssetPack-V1/Sprite Sheets/run cycle 48x48.png" id="6_5s7jd"]
+[ext_resource type="Texture2D" uid="uid://bvqna7ls5cx31" path="res://Assets/AssetPack-V1/Sprite Sheets/player jump 48x48.png" id="7_r02xu"]
+[ext_resource type="Texture2D" uid="uid://dqvqfwqg80bd1" path="res://Assets/Asset Pack-V2/Air Spin/player air spin 48x48.png" id="8_lfyk0"]
+[ext_resource type="Texture2D" uid="uid://bv15qf3c51bnt" path="res://Assets/Asset Pack-V2/Player Roll/Player Roll 48x48.png" id="9_mvys4"]
+[ext_resource type="Texture2D" uid="uid://g6v7upk22cnp" path="res://Assets/Asset Pack-V3/Player Punch/Player Punch 64x64.png" id="10_pskw4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5nvh0"]
 radius = 7.0
@@ -33,7 +31,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("9_iufth")]
+"values": [ExtResource("4_e1rc2")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -73,7 +71,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_ipaka")]
+"values": [ExtResource("5_dfej1")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -126,7 +124,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_uxx3o")]
+"values": [ExtResource("6_5s7jd")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -155,7 +153,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_knm3t")]
+"values": [ExtResource("7_r02xu")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -195,7 +193,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_rhjl5")]
+"values": [ExtResource("2_8apwy")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -247,7 +245,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("6_w0jnk")]
+"values": [ExtResource("8_lfyk0")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -299,7 +297,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_knm3t")]
+"values": [ExtResource("7_r02xu")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -327,7 +325,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_ipaka")]
+"values": [ExtResource("5_dfej1")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -380,7 +378,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_ipaka")]
+"values": [ExtResource("5_dfej1")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -407,7 +405,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_eo0oj")]
+"values": [ExtResource("9_mvys4")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -459,7 +457,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_knm3t")]
+"values": [ExtResource("7_r02xu")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -499,7 +497,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("9_672is")]
+"values": [ExtResource("10_pskw4")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -562,7 +560,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("2_rhjl5")]
+"values": [ExtResource("2_8apwy")]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -603,7 +601,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_uxx3o")]
+"values": [ExtResource("6_5s7jd")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -631,7 +629,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_uxx3o")]
+"values": [ExtResource("6_5s7jd")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -810,7 +808,7 @@ states/Start/position = Vector2(-150, 45)
 states/TURN/node = SubResource("AnimationNodeAnimation_p1qd2")
 states/TURN/position = Vector2(338, 242)
 transitions = ["Start", "IDLE", SubResource("AnimationNodeStateMachineTransition_uvnbv"), "MAX_HEIGHT", "FALL", SubResource("AnimationNodeStateMachineTransition_oiebc"), "RUN", "FALL", SubResource("AnimationNodeStateMachineTransition_3uhxl"), "IDLE", "DASH", SubResource("AnimationNodeStateMachineTransition_dkkkj"), "DASH", "RUN", SubResource("AnimationNodeStateMachineTransition_3iwad"), "RUN", "IDLE", SubResource("AnimationNodeStateMachineTransition_7xvu5"), "FALL", "LAND_BEGIN", SubResource("AnimationNodeStateMachineTransition_00jiu"), "LAND_BEGIN", "LAND_END", SubResource("AnimationNodeStateMachineTransition_ocbp4"), "LAND_END", "IDLE", SubResource("AnimationNodeStateMachineTransition_alx25"), "LAND_SPIN", "IDLE", SubResource("AnimationNodeStateMachineTransition_murye"), "DASH", "IDLE", SubResource("AnimationNodeStateMachineTransition_4jtiv"), "DASH", "TURN", SubResource("AnimationNodeStateMachineTransition_40mo7"), "TURN", "DASH", SubResource("AnimationNodeStateMachineTransition_kk6dw"), "IDLE", "CROUCHING", SubResource("AnimationNodeStateMachineTransition_h1a1y"), "CROUCHING", "IDLE", SubResource("AnimationNodeStateMachineTransition_o5wev"), "JUMP", "MAX_HEIGHT", SubResource("AnimationNodeStateMachineTransition_cpukj"), "JUMP", "AIR_DODGE", SubResource("AnimationNodeStateMachineTransition_5mokm"), "FALL", "AIR_DODGE", SubResource("AnimationNodeStateMachineTransition_hdrc2"), "AIR_DODGE", "FALL", SubResource("AnimationNodeStateMachineTransition_lnxbc"), "AIR_DODGE", "LAND_BEGIN", SubResource("AnimationNodeStateMachineTransition_l0c0r"), "RUN", "JUMP", SubResource("AnimationNodeStateMachineTransition_vlp6h"), "IDLE", "JUMP", SubResource("AnimationNodeStateMachineTransition_hus5u"), "DASH", "JUMP", SubResource("AnimationNodeStateMachineTransition_tyji5"), "CROUCHING", "JUMP", SubResource("AnimationNodeStateMachineTransition_37s5k"), "FALL", "JUMP", SubResource("AnimationNodeStateMachineTransition_7lcr5"), "IDLE", "PUNCH", SubResource("AnimationNodeStateMachineTransition_af3nr"), "PUNCH", "IDLE", SubResource("AnimationNodeStateMachineTransition_x3sa4")]
-graph_offset = Vector2(-398, -169.264)
+graph_offset = Vector2(-398, -218)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_peu0t"]
 
@@ -820,16 +818,18 @@ radius = 33.0151
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("1_5gb51")
+script = ExtResource("1_erb0d")
 
 [node name="Pivot" type="Node2D" parent="."]
+scale = Vector2(-1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+modulate = Color(1, 0.164706, 1, 1)
 position = Vector2(1, 0)
-texture = ExtResource("2_rhjl5")
+texture = ExtResource("2_8apwy")
 hframes = 10
 
-[node name="PuchHitbox" parent="Pivot" instance=ExtResource("3_ge1uf")]
+[node name="PuchHitbox" parent="Pivot" instance=ExtResource("3_3qpbh")]
 collision_layer = 4
 collision_mask = 4
 
@@ -855,22 +855,11 @@ tree_root = SubResource("AnimationNodeStateMachine_130hc")
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_peu0t")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="healthbar" parent="CanvasLayer" instance=ExtResource("11_i6nxp")]
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_kjvca")]
-
 [node name="pickablearea" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickablearea"]
 shape = SubResource("CircleShape2D_g00px")
-
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="Pivot/PuchHitbox"]
