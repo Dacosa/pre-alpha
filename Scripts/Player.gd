@@ -38,7 +38,7 @@ var health = 100:
 		healthbar.set_health(health)
 	get:
 		return health
-
+var in_damage = false
 
 @onready var pivot = $Pivot
 @onready var animation_player = $AnimationPlayer
@@ -193,6 +193,12 @@ func _physics_process(delta):
 		pickable.global_position = lerp(pickable.global_position, pickablemarker.global_position , 0.4)
 		
 	healthbar.global_position = pickablemarker.global_position
+	if in_damage == true:
+		if health > 0 and time == rest_time:
+			health -= 10
+			time = 0
+		else:
+			return
 
 
 
@@ -214,11 +220,9 @@ func _on_pickable_exit(body: Node):
 
 #healthbar, damage
 func take_damage():
-	if health > 0 and time == rest_time:
-		health -= 10
-		time = 0
-	else:
-		return
+	in_damage = true
+func not_take_damage():
+	in_damage = false
 func _on_timer_timeout():
 	if time < rest_time:
 		time +=1
