@@ -1,8 +1,8 @@
-[gd_scene load_steps=73 format=3 uid="uid://b8jgplaunof4n"]
+[gd_scene load_steps=72 format=3 uid="uid://b8jgplaunof4n"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_erb0d"]
 [ext_resource type="Texture2D" uid="uid://clup0f4c3sfea" path="res://Assets/AssetPack-V1/Sprite Sheets/Character Idle 48x48.png" id="2_8apwy"]
-[ext_resource type="PackedScene" path="res://Scenes/Hitbox.tscn" id="3_3qpbh"]
+[ext_resource type="PackedScene" uid="uid://b0mfkr670s7ls" path="res://Scenes/Hitbox.tscn" id="3_3qpbh"]
 [ext_resource type="Texture2D" uid="uid://cwnflsdw2q17u" path="res://Assets/Asset Pack-V3/Player Hurt-Damaged/Player Hurt 48x48.png" id="4_e1rc2"]
 [ext_resource type="Texture2D" uid="uid://chh2oukwp1ux7" path="res://Assets/AssetPack-V1/Sprite Sheets/player land 48x48.png" id="5_dfej1"]
 [ext_resource type="Texture2D" uid="uid://c4xyvg7kkdanv" path="res://Assets/AssetPack-V1/Sprite Sheets/run cycle 48x48.png" id="6_5s7jd"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dqvqfwqg80bd1" path="res://Assets/Asset Pack-V2/Air Spin/player air spin 48x48.png" id="8_lfyk0"]
 [ext_resource type="Texture2D" uid="uid://bv15qf3c51bnt" path="res://Assets/Asset Pack-V2/Player Roll/Player Roll 48x48.png" id="9_mvys4"]
 [ext_resource type="Texture2D" uid="uid://g6v7upk22cnp" path="res://Assets/Asset Pack-V3/Player Punch/Player Punch 64x64.png" id="10_pskw4"]
-[ext_resource type="PackedScene" uid="uid://b120m3tynpm8" path="res://UI/pause_menu.tscn" id="11_ns68p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5nvh0"]
 radius = 7.0
@@ -855,10 +854,6 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_130hc")
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_peu0t")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_ns68p")]
 
 [node name="pickablearea" type="Area2D" parent="."]
 collision_layer = 0

@@ -3,12 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://2xq5yk7m3idj" path="res://Scenes/player.tscn" id="2_rojcc"]
 [ext_resource type="PackedScene" uid="uid://b8jgplaunof4n" path="res://Scenes/player2.tscn" id="3_5q3rs"]
 [ext_resource type="Texture2D" uid="uid://b2p3nuyd08ksn" path="res://Assets/Adve tileset/tiles.png" id="3_hkt7m"]
-[ext_resource type="Texture2D" path="res://Assets/Image10000_scaled_4x_pngcrushed.png" id="4_41bsd"]
+[ext_resource type="Texture2D" uid="uid://bess2p3kb1xfi" path="res://Assets/Image10000_scaled_4x_pngcrushed.png" id="4_41bsd"]
 [ext_resource type="Script" path="res://Scripts/Player2.gd" id="4_gq1ad"]
 [ext_resource type="Script" path="res://Scripts/primerObjeto.gd" id="4_h286x"]
-[ext_resource type="PackedScene" path="res://Scenes/Hurtbox.tscn" id="5_1ihx6"]
-[ext_resource type="Texture2D" path="res://Assets/bg.jpg" id="6_h0udu"]
-[ext_resource type="PackedScene" path="res://Scenes/pickable.tscn" id="7_wd8we"]
+[ext_resource type="PackedScene" uid="uid://bnea8t7vqcmj5" path="res://Scenes/Hurtbox.tscn" id="5_1ihx6"]
+[ext_resource type="Texture2D" uid="uid://dtu40hnx5ywtp" path="res://Assets/bg.jpg" id="6_h0udu"]
+[ext_resource type="PackedScene" uid="uid://csyuh64ak4dcg" path="res://Scenes/pickable.tscn" id="7_wd8we"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xw5qx"]
 texture = ExtResource("3_hkt7m")
