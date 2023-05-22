@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://dvnt6bf4o56gb"]
+[gd_scene load_steps=75 format=3 uid="uid://dvnt6bf4o56gb"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_5gb51"]
 [ext_resource type="Texture2D" uid="uid://clup0f4c3sfea" path="res://Assets/AssetPack-V1/Sprite Sheets/Character Idle 48x48.png" id="2_rhjl5"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cwnflsdw2q17u" path="res://Assets/Asset Pack-V3/Player Hurt-Damaged/Player Hurt 48x48.png" id="9_iufth"]
 [ext_resource type="PackedScene" uid="uid://bu010pigrp6cn" path="res://UI/healthbar.tscn" id="11_i6nxp"]
 [ext_resource type="PackedScene" uid="uid://b120m3tynpm8" path="res://UI/pause_menu.tscn" id="11_kjvca"]
+[ext_resource type="PackedScene" uid="uid://b0l21pdg4xj1c" path="res://UI/victory_words_2.tscn" id="12_uo1gj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5nvh0"]
 radius = 7.0
@@ -858,6 +859,8 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_peu0t")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="healthbar" parent="CanvasLayer" instance=ExtResource("11_i6nxp")]
+
+[node name="Victory_words_2" parent="CanvasLayer" instance=ExtResource("12_uo1gj")]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_kjvca")]
 
