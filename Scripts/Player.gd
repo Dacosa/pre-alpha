@@ -217,6 +217,7 @@ func _physics_process(delta):
 	healthbar.global_position = pickablemarker.global_position
 	if in_damage == true:
 		if health > 0 and time == rest_time:
+			playback.start("TAKE_DAMAGE")
 			health -= 10
 			time = 0
 		else:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://dvnt6bf4o56gb"]
+[gd_scene load_steps=90 format=3 uid="uid://dvnt6bf4o56gb"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_5gb51"]
 [ext_resource type="Texture2D" uid="uid://clup0f4c3sfea" path="res://Assets/AssetPack-V1/Sprite Sheets/Character Idle 48x48.png" id="2_rhjl5"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://cwnflsdw2q17u" path="res://Assets/Asset Pack-V3/Player Hurt-Damaged/Player Hurt 48x48.png" id="9_iufth"]
 [ext_resource type="PackedScene" uid="uid://bu010pigrp6cn" path="res://UI/healthbar.tscn" id="11_i6nxp"]
 [ext_resource type="PackedScene" uid="uid://b120m3tynpm8" path="res://UI/pause_menu.tscn" id="11_kjvca"]
+[ext_resource type="Texture2D" uid="uid://by2atsu58x4qw" path="res://Assets/Asset Pack-V3/PlayerWalk/PlayerWalk 48x48.png" id="11_sovnh"]
+[ext_resource type="Texture2D" uid="uid://b8fsqbf0irudq" path="res://Assets/Asset Pack-V3/Player Death/Player Death 64x64.png" id="12_a3ly2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5nvh0"]
 radius = 7.0
@@ -658,11 +660,132 @@ tracks/2/keys = {
 "values": [2]
 }
 
+[sub_resource type="Animation" id="Animation_u41at"]
+resource_name = "TAKE_DAMAGE"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_iufth")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_717ue"]
+resource_name = "WALK"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_sovnh")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_yvcth"]
+resource_name = "DEATH"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_a3ly2")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2b48c"]
 _data = {
 "AIR_DODGE": SubResource("Animation_6ej5c"),
 "CROUCHING": SubResource("Animation_te7gd"),
 "DASH": SubResource("Animation_77nwn"),
+"DEATH": SubResource("Animation_yvcth"),
 "FALL": SubResource("Animation_ww8ee"),
 "IDLE": SubResource("Animation_v5a6u"),
 "JUMP": SubResource("Animation_sks3p"),
@@ -674,7 +797,9 @@ _data = {
 "PUNCH": SubResource("Animation_bh8ik"),
 "RESET": SubResource("Animation_cfytn"),
 "RUN": SubResource("Animation_p4n16"),
-"TURN": SubResource("Animation_1atjm")
+"TAKE_DAMAGE": SubResource("Animation_u41at"),
+"TURN": SubResource("Animation_1atjm"),
+"WALK": SubResource("Animation_717ue")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3yg4l"]
@@ -685,6 +810,9 @@ animation = &"CROUCHING"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s6x75"]
 animation = &"DASH"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8ilbj"]
+animation = &"DEATH"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ri7bm"]
 animation = &"FALL"
@@ -713,8 +841,14 @@ animation = &"PUNCH"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iogis"]
 animation = &"RUN"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6vjms"]
+animation = &"TAKE_DAMAGE"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p1qd2"]
 animation = &"TURN"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wdi6l"]
+animation = &"WALK"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uvnbv"]
 advance_mode = 2
@@ -780,6 +914,26 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x3sa4"]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4hcrk"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_il5p4"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qg3k5"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aulhh"]
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xo3n3"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4xgxm"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bdjhv"]
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ye2we"]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_130hc"]
 states/AIR_DODGE/node = SubResource("AnimationNodeAnimation_3yg4l")
 states/AIR_DODGE/position = Vector2(454, -132)
@@ -787,11 +941,13 @@ states/CROUCHING/node = SubResource("AnimationNodeAnimation_7ruwu")
 states/CROUCHING/position = Vector2(74, 142)
 states/DASH/node = SubResource("AnimationNodeAnimation_s6x75")
 states/DASH/position = Vector2(324, 153)
+states/DEATH/node = SubResource("AnimationNodeAnimation_8ilbj")
+states/DEATH/position = Vector2(839, 37.736)
 states/End/position = Vector2(1015, 45)
 states/FALL/node = SubResource("AnimationNodeAnimation_ri7bm")
 states/FALL/position = Vector2(629, -245)
 states/IDLE/node = SubResource("AnimationNodeAnimation_tq05f")
-states/IDLE/position = Vector2(74, 3)
+states/IDLE/position = Vector2(74, 1)
 states/JUMP/node = SubResource("AnimationNodeAnimation_yhjof")
 states/JUMP/position = Vector2(261, -171)
 states/LAND_BEGIN/node = SubResource("AnimationNodeAnimation_22l0j")
@@ -799,7 +955,7 @@ states/LAND_BEGIN/position = Vector2(681, -18)
 states/LAND_END/node = SubResource("AnimationNodeAnimation_wiavh")
 states/LAND_END/position = Vector2(657, 64)
 states/LAND_SPIN/node = SubResource("AnimationNodeAnimation_35r6v")
-states/LAND_SPIN/position = Vector2(-9, -47)
+states/LAND_SPIN/position = Vector2(-204, -18)
 states/MAX_HEIGHT/node = SubResource("AnimationNodeAnimation_3mwxg")
 states/MAX_HEIGHT/position = Vector2(368, -330)
 states/PUNCH/node = SubResource("AnimationNodeAnimation_mmf53")
@@ -807,10 +963,14 @@ states/PUNCH/position = Vector2(-12, 85)
 states/RUN/node = SubResource("AnimationNodeAnimation_iogis")
 states/RUN/position = Vector2(503, 133)
 states/Start/position = Vector2(-150, 45)
+states/TAKE_DAMAGE/node = SubResource("AnimationNodeAnimation_6vjms")
+states/TAKE_DAMAGE/position = Vector2(-204, -111.264)
 states/TURN/node = SubResource("AnimationNodeAnimation_p1qd2")
 states/TURN/position = Vector2(338, 242)
-transitions = ["Start", "IDLE", SubResource("AnimationNodeStateMachineTransition_uvnbv"), "MAX_HEIGHT", "FALL", SubResource("AnimationNodeStateMachineTransition_oiebc"), "RUN", "FALL", SubResource("AnimationNodeStateMachineTransition_3uhxl"), "IDLE", "DASH", SubResource("AnimationNodeStateMachineTransition_dkkkj"), "DASH", "RUN", SubResource("AnimationNodeStateMachineTransition_3iwad"), "RUN", "IDLE", SubResource("AnimationNodeStateMachineTransition_7xvu5"), "FALL", "LAND_BEGIN", SubResource("AnimationNodeStateMachineTransition_00jiu"), "LAND_BEGIN", "LAND_END", SubResource("AnimationNodeStateMachineTransition_ocbp4"), "LAND_END", "IDLE", SubResource("AnimationNodeStateMachineTransition_alx25"), "LAND_SPIN", "IDLE", SubResource("AnimationNodeStateMachineTransition_murye"), "DASH", "IDLE", SubResource("AnimationNodeStateMachineTransition_4jtiv"), "DASH", "TURN", SubResource("AnimationNodeStateMachineTransition_40mo7"), "TURN", "DASH", SubResource("AnimationNodeStateMachineTransition_kk6dw"), "IDLE", "CROUCHING", SubResource("AnimationNodeStateMachineTransition_h1a1y"), "CROUCHING", "IDLE", SubResource("AnimationNodeStateMachineTransition_o5wev"), "JUMP", "MAX_HEIGHT", SubResource("AnimationNodeStateMachineTransition_cpukj"), "JUMP", "AIR_DODGE", SubResource("AnimationNodeStateMachineTransition_5mokm"), "FALL", "AIR_DODGE", SubResource("AnimationNodeStateMachineTransition_hdrc2"), "AIR_DODGE", "FALL", SubResource("AnimationNodeStateMachineTransition_lnxbc"), "AIR_DODGE", "LAND_BEGIN", SubResource("AnimationNodeStateMachineTransition_l0c0r"), "RUN", "JUMP", SubResource("AnimationNodeStateMachineTransition_vlp6h"), "IDLE", "JUMP", SubResource("AnimationNodeStateMachineTransition_hus5u"), "DASH", "JUMP", SubResource("AnimationNodeStateMachineTransition_tyji5"), "CROUCHING", "JUMP", SubResource("AnimationNodeStateMachineTransition_37s5k"), "FALL", "JUMP", SubResource("AnimationNodeStateMachineTransition_7lcr5"), "IDLE", "PUNCH", SubResource("AnimationNodeStateMachineTransition_af3nr"), "PUNCH", "IDLE", SubResource("AnimationNodeStateMachineTransition_x3sa4")]
-graph_offset = Vector2(-398, -169.264)
+states/WALK/node = SubResource("AnimationNodeAnimation_wdi6l")
+states/WALK/position = Vector2(46, -103.264)
+transitions = ["Start", "IDLE", SubResource("AnimationNodeStateMachineTransition_uvnbv"), "MAX_HEIGHT", "FALL", SubResource("AnimationNodeStateMachineTransition_oiebc"), "RUN", "FALL", SubResource("AnimationNodeStateMachineTransition_3uhxl"), "IDLE", "DASH", SubResource("AnimationNodeStateMachineTransition_dkkkj"), "DASH", "RUN", SubResource("AnimationNodeStateMachineTransition_3iwad"), "RUN", "IDLE", SubResource("AnimationNodeStateMachineTransition_7xvu5"), "FALL", "LAND_BEGIN", SubResource("AnimationNodeStateMachineTransition_00jiu"), "LAND_BEGIN", "LAND_END", SubResource("AnimationNodeStateMachineTransition_ocbp4"), "LAND_END", "IDLE", SubResource("AnimationNodeStateMachineTransition_alx25"), "LAND_SPIN", "IDLE", SubResource("AnimationNodeStateMachineTransition_murye"), "DASH", "IDLE", SubResource("AnimationNodeStateMachineTransition_4jtiv"), "DASH", "TURN", SubResource("AnimationNodeStateMachineTransition_40mo7"), "TURN", "DASH", SubResource("AnimationNodeStateMachineTransition_kk6dw"), "IDLE", "CROUCHING", SubResource("AnimationNodeStateMachineTransition_h1a1y"), "CROUCHING", "IDLE", SubResource("AnimationNodeStateMachineTransition_o5wev"), "JUMP", "MAX_HEIGHT", SubResource("AnimationNodeStateMachineTransition_cpukj"), "JUMP", "AIR_DODGE", SubResource("AnimationNodeStateMachineTransition_5mokm"), "FALL", "AIR_DODGE", SubResource("AnimationNodeStateMachineTransition_hdrc2"), "AIR_DODGE", "FALL", SubResource("AnimationNodeStateMachineTransition_lnxbc"), "AIR_DODGE", "LAND_BEGIN", SubResource("AnimationNodeStateMachineTransition_l0c0r"), "RUN", "JUMP", SubResource("AnimationNodeStateMachineTransition_vlp6h"), "IDLE", "JUMP", SubResource("AnimationNodeStateMachineTransition_hus5u"), "DASH", "JUMP", SubResource("AnimationNodeStateMachineTransition_tyji5"), "CROUCHING", "JUMP", SubResource("AnimationNodeStateMachineTransition_37s5k"), "FALL", "JUMP", SubResource("AnimationNodeStateMachineTransition_7lcr5"), "IDLE", "PUNCH", SubResource("AnimationNodeStateMachineTransition_af3nr"), "PUNCH", "IDLE", SubResource("AnimationNodeStateMachineTransition_x3sa4"), "IDLE", "TAKE_DAMAGE", SubResource("AnimationNodeStateMachineTransition_4hcrk"), "TAKE_DAMAGE", "IDLE", SubResource("AnimationNodeStateMachineTransition_il5p4"), "IDLE", "WALK", SubResource("AnimationNodeStateMachineTransition_qg3k5"), "WALK", "IDLE", SubResource("AnimationNodeStateMachineTransition_aulhh"), "DASH", "FALL", SubResource("AnimationNodeStateMachineTransition_xo3n3"), "WALK", "RUN", SubResource("AnimationNodeStateMachineTransition_4xgxm"), "IDLE", "DEATH", SubResource("AnimationNodeStateMachineTransition_bdjhv"), "DEATH", "End", SubResource("AnimationNodeStateMachineTransition_ye2we")]
+graph_offset = Vector2(-42, -28.264)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_peu0t"]
 
