@@ -52,7 +52,6 @@ var in_damage = false
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var punch_hitbox = $Pivot/PuchHitbox
-
 #Pickable
 @onready var pickablemarker = $Pivot/pickablemarker
 @onready var pickablearea = $pickablearea
@@ -62,10 +61,8 @@ var in_damage = false
 @onready var victory_words_2 = $CanvasLayer/Victory_words_2
 
 
-
 func _ready():
 	animation_tree.active = true
-
 	punch_hitbox.body_entered.connect(_on_body_entered)
 #	Engine.time_scale = 0.2		
 
@@ -217,10 +214,9 @@ func _physics_process(delta):
 	if pickable and grabbed:
 		pickable.global_position = lerp(pickable.global_position, pickablemarker.global_position , 0.4)
 	
-	#healthbar
-	healthbar.global_position = pickablemarker.global_position
+
 	if in_damage == true:
-		if health > 0 and time == rest_time:
+		if health > 0 and time >= rest_time:
 			playback.start("TAKE_DAMAGE")
 			health -= 10
 			time = 0
@@ -238,7 +234,6 @@ func _on_body_entered(body: Node):
 		body.push(strength * direction, Input.get_vector("move_left", "move_right", "move_up", "move_down"))
 
 
-
 # Pickable object
 func _on_pickable_enter(body: Node):
 	if body is Pickable and not grabbed:
@@ -246,9 +241,15 @@ func _on_pickable_enter(body: Node):
 func _on_pickable_exit(body: Node):
 	if body == pickable and not grabbed:
 		pickable = null
-
-
-
+ 
+func launch(v):
+	if v.length() > 100:
+		if health > 0 and time == rest_time:
+			playback.start("TAKE_DAMAGE")
+			health -= 10*floor(v.length()/100)
+			time = 0
+		velocity = v
+	
 #healthbar, damage
 func take_damage():
 	in_damage = true

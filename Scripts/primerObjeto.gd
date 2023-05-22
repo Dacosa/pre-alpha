@@ -5,6 +5,14 @@ var need_reset = false
 
 func _ready():
 	respawn_pos = self.get_position()
+	set_contact_monitor(true)
+	set_max_contacts_reported(3)
+
+func _physics_process(_delta):
+	var bodies = get_colliding_bodies()
+	for body in bodies:
+		if body.has_method("launch"): #check colliding body is in the "players" group
+			body.launch(linear_velocity) #whatever u want to do (i.e, damage the player)
 
 #Por ahora solo respawnea cuando le pegan, idealmente respawnea si se mueve
 #func _process(delta):

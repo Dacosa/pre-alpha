@@ -29,10 +29,22 @@ var strength = 1000
 var pickable: Pickable = null
 var grabbed = false
 
+
 var max_x = 0.3 
 var min_x = -0.3 
 var max_y = 0.3 
 var min_y = -0.3 
+
+const rest_time = 2
+var time = rest_time
+const MAX_HEALTH = 100
+var health = 100:
+	set(value):
+		health = value
+		healthbar.set_health(health)
+	get:
+		return health
+var in_damage = false
 
 
 @onready var pivot = $Pivot
@@ -40,30 +52,32 @@ var min_y = -0.3
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var punch_hitbox = $Pivot/PuchHitbox
-
-
+#Pickable
 @onready var pickablemarker = $Pivot/pickablemarker
 @onready var pickablearea = $pickablearea
+
+@onready var healthbar = $CanvasLayer/healthbar2
+
+@onready var victory_words_1 = $CanvasLayer/Victory_words_1
 
 
 func _ready():
 	animation_tree.active = true
-
 	punch_hitbox.body_entered.connect(_on_body_entered)
 #	Engine.time_scale = 0.2		
 
-
-	
 	#Pickable
 	pickablearea.body_entered.connect(_on_pickable_enter)
 	pickablearea.body_exited.connect(_on_pickable_exit)
-#	Engine.time_scale = 0.2
+
+
 
 func hit():
 	pass
 
+
+
 func _physics_process(delta):
-	
 	
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
@@ -98,10 +112,10 @@ func _physics_process(delta):
 		second_jump = false
 	
 	#move input vars
-	var move_input_x = Input.get_axis("move_left2", "move_right2")
+	var move_input_x = Input.get_axis("move_left", "move_right")
 	var move_input_y = Input.get_axis("move_up2", "move_down2")
 	
-		#fix controller values
+	#fix controller values
 	if move_input_x > 0:
 		max_x = max(max_x, move_input_x)
 		move_input_x /= max_x
@@ -114,6 +128,8 @@ func _physics_process(delta):
 	else:
 		min_y = min(min_y, move_input_y)
 		move_input_y /= -min_y
+	
+	#print(move_input_x," ", move_input_y)
 	
 	#air spin
 	"""
@@ -197,9 +213,22 @@ func _physics_process(delta):
 		
 	if pickable and grabbed:
 		pickable.global_position = lerp(pickable.global_position, pickablemarker.global_position , 0.4)
-		
 	
+	#healthbar
+	healthbar.global_position = pickablemarker.global_position
+	if in_damage == true:
+		if health > 0 and time == rest_time:
+			playback.start("TAKE_DAMAGE")
+			health -= 10
+			time = 0
+		else:
+			return
 	
+	#Defeat
+	if health < 0 or health == 0:
+		victory_words_1.player1_win()
+
+
 
 func _on_body_entered(body: Node):
 	if body.has_method("push"):
@@ -210,8 +239,27 @@ func _on_body_entered(body: Node):
 func _on_pickable_enter(body: Node):
 	if body is Pickable and not grabbed:
 		pickable = body
-
 func _on_pickable_exit(body: Node):
 	if body == pickable and not grabbed:
 		pickable = null
+ 
+func launch(v):
+	if v.length() > 200:
+		print(health)
+		if health > 0 and time == rest_time:
+			playback.start("TAKE_DAMAGE")
+			health -= 5*floor(v.length()/50)
+			time = 0
+		velocity = v
+	
+#healthbar, damage
+func take_damage():
+	in_damage = true
+func not_take_damage():
+	in_damage = false
+func _on_timer_timeout():
+	if time < rest_time:
+		time +=1
+	else:
+		pass
 
