@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b120m3tynpm8" path="res://UI/pause_menu.tscn" id="11_kjvca"]
 [ext_resource type="Texture2D" uid="uid://by2atsu58x4qw" path="res://Assets/Asset Pack-V3/PlayerWalk/PlayerWalk 48x48.png" id="11_sovnh"]
 [ext_resource type="Texture2D" uid="uid://b8fsqbf0irudq" path="res://Assets/Asset Pack-V3/Player Death/Player Death 64x64.png" id="12_a3ly2"]
+[ext_resource type="PackedScene" uid="uid://b0l21pdg4xj1c" path="res://UI/victory_words_2.tscn" id="12_uo1gj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5nvh0"]
 radius = 7.0
@@ -1018,6 +1019,8 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_peu0t")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="healthbar" parent="CanvasLayer" instance=ExtResource("11_i6nxp")]
+
+[node name="Victory_words_2" parent="CanvasLayer" instance=ExtResource("12_uo1gj")]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_kjvca")]
 

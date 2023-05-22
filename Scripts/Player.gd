@@ -59,6 +59,9 @@ var in_damage = false
 
 @onready var healthbar = $CanvasLayer/healthbar
 
+@onready var victory_words_2 = $CanvasLayer/Victory_words_2
+
+
 
 func _ready():
 	animation_tree.active = true
@@ -213,7 +216,8 @@ func _physics_process(delta):
 		
 	if pickable and grabbed:
 		pickable.global_position = lerp(pickable.global_position, pickablemarker.global_position , 0.4)
-		
+	
+	#healthbar
 	healthbar.global_position = pickablemarker.global_position
 	if in_damage == true:
 		if health > 0 and time == rest_time:
@@ -222,6 +226,10 @@ func _physics_process(delta):
 			time = 0
 		else:
 			return
+	
+	#Defeat
+	if health < 0 or health == 0:
+		victory_words_2.player2_win()
 
 
 
@@ -251,3 +259,4 @@ func _on_timer_timeout():
 		time +=1
 	else:
 		pass
+
