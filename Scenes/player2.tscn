@@ -11,9 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://dqvqfwqg80bd1" path="res://Assets/Asset Pack-V2/Air Spin/player air spin 48x48.png" id="8_lfyk0"]
 [ext_resource type="Texture2D" uid="uid://bv15qf3c51bnt" path="res://Assets/Asset Pack-V2/Player Roll/Player Roll 48x48.png" id="9_mvys4"]
 [ext_resource type="Texture2D" uid="uid://g6v7upk22cnp" path="res://Assets/Asset Pack-V3/Player Punch/Player Punch 64x64.png" id="10_pskw4"]
-[ext_resource type="PackedScene" uid="uid://bu010pigrp6cn" path="res://UI/healthbar.tscn" id="11_pc0v2"]
-[ext_resource type="PackedScene" uid="uid://b0l21pdg4xj1c" path="res://UI/victory_words_2.tscn" id="12_jkdw1"]
+[ext_resource type="PackedScene" uid="uid://bu010pigrp6cn" path="res://UI/healthbar2.tscn" id="11_pc0v2"]
 [ext_resource type="Texture2D" uid="uid://by2atsu58x4qw" path="res://Assets/Asset Pack-V3/PlayerWalk/PlayerWalk 48x48.png" id="12_pdgxh"]
+[ext_resource type="PackedScene" uid="uid://dxm81ywjdhud8" path="res://UI/victory_words_1.tscn" id="14_4ttsa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5nvh0"]
 radius = 7.0
@@ -977,7 +977,7 @@ graph_offset = Vector2(-517.867, -28.264)
 [sub_resource type="CircleShape2D" id="CircleShape2D_g00px"]
 radius = 33.0151
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player2" type="CharacterBody2D"]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_erb0d")
@@ -1022,7 +1022,16 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_8mgl7")
 [node name="healthbar2" parent="CanvasLayer" instance=ExtResource("11_pc0v2")]
 metadata/_edit_use_anchors_ = true
 
-[node name="Victory_words_1" parent="CanvasLayer" instance=ExtResource("12_jkdw1")]
+[node name="Victory_words_1" parent="CanvasLayer" instance=ExtResource("14_4ttsa")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 685.0
+offset_top = 39.0
+offset_right = 793.0
+offset_bottom = 49.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="pickablearea" type="Area2D" parent="."]
 collision_layer = 0
@@ -1031,6 +1040,9 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickablearea"]
 shape = SubResource("CircleShape2D_g00px")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer2" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 
 [editable path="Pivot/PuchHitbox"]

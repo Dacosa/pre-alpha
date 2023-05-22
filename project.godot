@@ -17,7 +17,9 @@ config/icon="res://icon.svg"
 
 [display]
 
+window/size/mode=3
 window/size/initial_position_type=0
+window/size/extend_to_title=true
 window/stretch/mode="viewport"
 
 [input]

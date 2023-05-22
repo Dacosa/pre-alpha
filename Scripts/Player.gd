@@ -46,6 +46,9 @@ var health = 100:
 		return health
 var in_damage = false
 
+var teabagging = 0
+var crouching = false
+
 
 @onready var pivot = $Pivot
 @onready var animation_player = $AnimationPlayer
@@ -61,6 +64,7 @@ var in_damage = false
 @onready var victory_words_2 = $CanvasLayer/Victory_words_2
 
 
+
 func _ready():
 	animation_tree.active = true
 	punch_hitbox.body_entered.connect(_on_body_entered)
@@ -69,7 +73,6 @@ func _ready():
 	#Pickable
 	pickablearea.body_entered.connect(_on_pickable_enter)
 	pickablearea.body_exited.connect(_on_pickable_exit)
-
 
 
 func hit():
@@ -183,9 +186,13 @@ func _physics_process(delta):
 			playback.travel("RUN")
 		elif move_input_y > 0.7:
 			playback.travel("CROUCHING")
+			if not crouching:
+				crouching = true
+				teabagging += 1
 		elif Input.is_action_just_pressed("attack"):
 			playback.travel("PUNCH")
 		else:
+			crouching = false
 			playback.travel("IDLE")
 	else:
 		#if Input.is_action_just_pressed("air_spin"):
@@ -224,8 +231,13 @@ func _physics_process(delta):
 			return
 	
 	#Defeat
-	if health < 0 or health == 0:
+	if health <= 0:
 		victory_words_2.player2_win()
+		
+	if teabagging == 10:
+		health = MAX_HEALTH
+		teabagging = 0
+		crouching = false
 
 
 
@@ -246,9 +258,10 @@ func launch(v):
 	if v.length() > 100:
 		if health > 0 and time == rest_time:
 			playback.start("TAKE_DAMAGE")
-			health -= 10*floor(v.length()/100)
+			health -= 10*floor(v.length()/50)
 			time = 0
 		velocity = v
+		
 	
 #healthbar, damage
 func take_damage():

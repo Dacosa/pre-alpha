@@ -54,5 +54,5 @@ horizontal_alignment = 1
 [node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "\"IZI PIZI\""
+text = "\"GIT GUD\""
 horizontal_alignment = 1

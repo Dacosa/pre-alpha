@@ -46,6 +46,10 @@ var health = 100:
 		return health
 var in_damage = false
 
+var teabagging = 0
+var crouching = false
+
+
 
 @onready var pivot = $Pivot
 @onready var animation_player = $AnimationPlayer
@@ -112,7 +116,7 @@ func _physics_process(delta):
 		second_jump = false
 	
 	#move input vars
-	var move_input_x = Input.get_axis("move_left", "move_right")
+	var move_input_x = Input.get_axis("move_left2", "move_right2")
 	var move_input_y = Input.get_axis("move_up2", "move_down2")
 	
 	#fix controller values
@@ -183,9 +187,13 @@ func _physics_process(delta):
 			playback.travel("RUN")
 		elif move_input_y > 0.7:
 			playback.travel("CROUCHING")
+			if not crouching:
+				crouching = true
+				teabagging += 1
 		elif Input.is_action_just_pressed("attack2"):
 			playback.travel("PUNCH")
 		else:
+			crouching = false
 			playback.travel("IDLE")
 	else:
 		#if Input.is_action_just_pressed("air_spin"):
@@ -214,8 +222,7 @@ func _physics_process(delta):
 	if pickable and grabbed:
 		pickable.global_position = lerp(pickable.global_position, pickablemarker.global_position , 0.4)
 	
-	#healthbar
-	healthbar.global_position = pickablemarker.global_position
+
 	if in_damage == true:
 		if health > 0 and time == rest_time:
 			playback.start("TAKE_DAMAGE")
@@ -225,8 +232,14 @@ func _physics_process(delta):
 			return
 	
 	#Defeat
-	if health < 0 or health == 0:
+	if health <= 0:
 		victory_words_1.player1_win()
+		
+	
+	if teabagging == 10:
+		health = MAX_HEALTH
+		teabagging = 0
+		crouching = false
 
 
 
@@ -257,9 +270,9 @@ func take_damage():
 	in_damage = true
 func not_take_damage():
 	in_damage = false
-func _on_timer_timeout():
+func _on_timer_2_timeout():
 	if time < rest_time:
 		time +=1
 	else:
 		pass
-
+		
