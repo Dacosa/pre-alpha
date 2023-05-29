@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bv15qf3c51bnt" path="res://Assets/Asset Pack-V2/Player Roll/Player Roll 48x48.png" id="7_eo0oj"]
 [ext_resource type="Texture2D" uid="uid://g6v7upk22cnp" path="res://Assets/Asset Pack-V3/Player Punch/Player Punch 64x64.png" id="9_672is"]
 [ext_resource type="Texture2D" uid="uid://cwnflsdw2q17u" path="res://Assets/Asset Pack-V3/Player Hurt-Damaged/Player Hurt 48x48.png" id="9_iufth"]
-[ext_resource type="PackedScene" uid="uid://bu010pigrp6cn" path="res://UI/healthbar2.tscn" id="11_i6nxp"]
+[ext_resource type="PackedScene" uid="uid://bu010pigrp6cn" path="res://UI/healthbar.tscn" id="11_i6nxp"]
 [ext_resource type="PackedScene" uid="uid://b120m3tynpm8" path="res://UI/pause_menu.tscn" id="11_kjvca"]
 [ext_resource type="Texture2D" uid="uid://by2atsu58x4qw" path="res://Assets/Asset Pack-V3/PlayerWalk/PlayerWalk 48x48.png" id="11_sovnh"]
 [ext_resource type="Texture2D" uid="uid://b8fsqbf0irudq" path="res://Assets/Asset Pack-V3/Player Death/Player Death 64x64.png" id="12_a3ly2"]

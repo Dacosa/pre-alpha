@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dqvqfwqg80bd1" path="res://Assets/Asset Pack-V2/Air Spin/player air spin 48x48.png" id="8_lfyk0"]
 [ext_resource type="Texture2D" uid="uid://bv15qf3c51bnt" path="res://Assets/Asset Pack-V2/Player Roll/Player Roll 48x48.png" id="9_mvys4"]
 [ext_resource type="Texture2D" uid="uid://g6v7upk22cnp" path="res://Assets/Asset Pack-V3/Player Punch/Player Punch 64x64.png" id="10_pskw4"]
-[ext_resource type="PackedScene" uid="uid://bu010pigrp6cn" path="res://UI/healthbar2.tscn" id="11_pc0v2"]
+[ext_resource type="PackedScene" uid="uid://bu010pigrp6cn" path="res://UI/healthbar.tscn" id="11_pc0v2"]
 [ext_resource type="Texture2D" uid="uid://by2atsu58x4qw" path="res://Assets/Asset Pack-V3/PlayerWalk/PlayerWalk 48x48.png" id="12_pdgxh"]
 [ext_resource type="PackedScene" uid="uid://dxm81ywjdhud8" path="res://UI/victory_words_1.tscn" id="14_4ttsa"]
 
