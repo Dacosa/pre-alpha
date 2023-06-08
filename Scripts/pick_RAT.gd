@@ -9,9 +9,10 @@ var damage_gas_area = preload("res://Scenes/Gas_Damage.tscn")
 
 
 func passive_on():
-	gas_toxico.emitting = true
+	pass
 
 func passive_off():
+	gas_toxico.emitting = true
 	get_tree().create_timer(5).timeout.connect(queue_free)
 	# Tiempo de vida, luego de ser botado
 	#gas_toxico.emitting = false
