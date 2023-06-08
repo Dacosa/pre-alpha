@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgr8wnaailw2g"]
+
+[ext_resource type="Script" path="res://Scripts/Gas_Damage.gd" id="1_iymhi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wsgsn"]
+radius = 12.2066
+
+[node name="Rat_damage" type="Area2D"]
+script = ExtResource("1_iymhi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -0.807671
+shape = SubResource("CircleShape2D_wsgsn")
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

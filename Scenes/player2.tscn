@@ -1001,7 +1001,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5nvh0")
 
 [node name="pickablemarker" type="Marker2D" parent="Pivot"]
-position = Vector2(0, -18)
+position = Vector2(-8, -21)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)

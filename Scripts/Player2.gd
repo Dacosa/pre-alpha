@@ -215,13 +215,17 @@ func _physics_process(delta):
 		
 	
 	#Pickable
-	if Input.is_action_just_pressed("pick2") and pickable:
+	if Input.is_action_just_pressed("pick2") and pickable and pickable != null:
 		grabbed = !grabbed
 		pickable.freeze = grabbed
 		
-	if pickable and grabbed:
+	if pickable and grabbed and pickable != null:
+		pickable.passive_on()
 		pickable.global_position = lerp(pickable.global_position, pickablemarker.global_position , 0.4)
-	
+		pickable.scale.x=pivot.scale.x
+		
+	if grabbed and pickable == null:
+		grabbed = !grabbed
 
 	if in_damage == true:
 		if health > 0 and time == rest_time:
@@ -252,8 +256,10 @@ func _on_body_entered(body: Node):
 func _on_pickable_enter(body: Node):
 	if body is Pickable and not grabbed:
 		pickable = body
+
 func _on_pickable_exit(body: Node):
 	if body == pickable and not grabbed:
+		pickable.passive_off()
 		pickable = null
  
 func launch(v):

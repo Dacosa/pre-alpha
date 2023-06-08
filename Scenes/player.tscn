@@ -1000,7 +1000,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5nvh0")
 
 [node name="pickablemarker" type="Marker2D" parent="Pivot"]
-position = Vector2(0, -18)
+position = Vector2(-8, -21)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
@@ -1020,9 +1020,7 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_peu0t")
 
 [node name="healthbar" parent="CanvasLayer" instance=ExtResource("11_i6nxp")]
 offset_left = -795.0
-offset_top = -805.0
 offset_right = -1419.0
-offset_bottom = -1023.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Victory_words_2" parent="CanvasLayer" instance=ExtResource("12_uo1gj")]

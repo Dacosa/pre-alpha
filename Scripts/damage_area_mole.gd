@@ -1,5 +1,5 @@
+class_name damage_area
 extends Area2D
-
 
 
 func _ready():
