@@ -223,7 +223,7 @@ func _physics_process(delta):
 		pickable.passive_on()
 		pickable.global_position = lerp(pickable.global_position, pickablemarker.global_position , 0.4)
 		pickable.scale.x=pivot.scale.x
-		
+	
 	if grabbed and pickable == null:
 		grabbed = !grabbed
 

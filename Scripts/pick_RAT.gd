@@ -13,7 +13,7 @@ func passive_on():
 
 func passive_off():
 	gas_toxico.emitting = true
-	get_tree().create_timer(5).timeout.connect(queue_free)
+	get_tree().create_timer(10).timeout.connect(queue_free)
 	# Tiempo de vida, luego de ser botado
 	#gas_toxico.emitting = false
 	
