@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bi808k403yhv3"]
+[gd_scene load_steps=19 format=3 uid="uid://bi808k403yhv3"]
 
 [ext_resource type="Texture2D" uid="uid://dtu40hnx5ywtp" path="res://Assets/bg.jpg" id="1_vijd1"]
 [ext_resource type="PackedScene" uid="uid://dvnt6bf4o56gb" path="res://Scenes/player.tscn" id="2_rojcc"]
@@ -8,8 +8,9 @@
 [ext_resource type="Script" path="res://Scripts/Player2.gd" id="4_gq1ad"]
 [ext_resource type="Script" path="res://Scripts/primerObjeto.gd" id="4_h286x"]
 [ext_resource type="PackedScene" uid="uid://bnea8t7vqcmj5" path="res://Scenes/Hurtbox.tscn" id="5_1ihx6"]
-[ext_resource type="PackedScene" uid="uid://csyuh64ak4dcg" path="res://Scenes/pickable.tscn" id="7_wd8we"]
+[ext_resource type="PackedScene" uid="uid://bx7mb8xvqhixr" path="res://Scenes/pick_RAT.tscn" id="7_wd8we"]
 [ext_resource type="PackedScene" uid="uid://wooqlqccvcu6" path="res://Scenes/damage_area_mole.tscn" id="8_my85j"]
+[ext_resource type="PackedScene" uid="uid://csyuh64ak4dcg" path="res://Scenes/pickable.tscn" id="10_btjhk"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_pfknn"]
 
@@ -661,12 +662,6 @@ shape = SubResource("RectangleShape2D_q6vqf")
 position = Vector2(18, -124)
 zoom = Vector2(0.8, 0.8)
 
-[node name="pickablebox" parent="." instance=ExtResource("7_wd8we")]
-position = Vector2(-310, 206)
-
-[node name="pickablebox2" parent="." instance=ExtResource("7_wd8we")]
-position = Vector2(-269, 206)
-
 [node name="DamageArea_Mole" parent="." instance=ExtResource("8_my85j")]
 position = Vector2(254, 208)
 
@@ -684,6 +679,12 @@ position = Vector2(186, 208)
 
 [node name="DamageArea_Mole6" parent="." instance=ExtResource("8_my85j")]
 position = Vector2(169, 208)
+
+[node name="pickablebox" parent="." instance=ExtResource("10_btjhk")]
+position = Vector2(-296, 196)
+
+[node name="RAT" parent="." instance=ExtResource("7_wd8we")]
+position = Vector2(-186, 199)
 
 [connection signal="area_entered" from="Objeto/Area2D" to="Objeto" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Objeto2/Area2D" to="Objeto2" method="_on_area_2d_area_entered"]

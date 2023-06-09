@@ -29,7 +29,6 @@ var strength = 1000
 var pickable: Pickable = null
 var grabbed = false
 
-
 var max_x = 0.3 
 var min_x = -0.3 
 var max_y = 0.3 
@@ -58,6 +57,7 @@ var crouching = false
 #Pickable
 @onready var pickablemarker = $Pivot/pickablemarker
 @onready var pickablearea = $pickablearea
+
 
 @onready var healthbar = $CanvasLayer/healthbar
 
@@ -214,14 +214,18 @@ func _physics_process(delta):
 		
 	
 	#Pickable
-	if Input.is_action_just_pressed("pick") and pickable:
+	if Input.is_action_just_pressed("pick") and pickable and pickable != null:
 		grabbed = !grabbed
 		pickable.freeze = grabbed
 		
-	if pickable and grabbed:
-		pickable.global_position = lerp(pickable.global_position, pickablemarker.global_position , 0.4)
+	if pickable and grabbed and pickable != null:
+		pickable.passive_on()
+		pickable.global_position = lerp(pickable.global_position, pickablemarker.global_position , 1 )
+		pickable.scale.x=pivot.scale.x
+		
+	if grabbed and pickable == null:
+		grabbed = !grabbed
 	
-
 	if in_damage == true:
 		if health > 0 and time >= rest_time:
 			playback.start("TAKE_DAMAGE")
@@ -250,8 +254,10 @@ func _on_body_entered(body: Node):
 func _on_pickable_enter(body: Node):
 	if body is Pickable and not grabbed:
 		pickable = body
+		
 func _on_pickable_exit(body: Node):
 	if body == pickable and not grabbed:
+		pickable.passive_off()
 		pickable = null
  
 func launch(v):
