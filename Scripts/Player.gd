@@ -228,7 +228,7 @@ func _physics_process(delta):
 		grabbed = !grabbed
 		
 	if !grabbed and Input.is_action_just_pressed("pick"):
-		if pickable:
+		if pickable and pickable != null:
 			pickable.passive_off()
 	
 	
