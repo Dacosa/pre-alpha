@@ -33,6 +33,7 @@ func _physics_process(delta):
 
 func launch(v):
 	playback.travel("Transform")
+	await get_tree().create_timer(2).timeout
 	awake = true
 
 
