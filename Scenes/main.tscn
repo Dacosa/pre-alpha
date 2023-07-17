@@ -688,7 +688,7 @@ position = Vector2(-296, 196)
 position = Vector2(-186, 199)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("12_25fdm")]
-position = Vector2(369, 167)
+position = Vector2(124, -68)
 
 [connection signal="area_entered" from="Objeto/Area2D" to="Objeto" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Objeto2/Area2D" to="Objeto2" method="_on_area_2d_area_entered"]
