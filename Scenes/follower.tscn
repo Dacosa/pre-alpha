@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://bl1uwr3aycbua"]
+[gd_scene load_steps=31 format=3 uid="uid://bl1uwr3aycbua"]
 
 [ext_resource type="Script" path="res://Scripts/follower.gd" id="1_jvuiu"]
 [ext_resource type="Texture2D" uid="uid://v71oqhamo6og" path="res://Assets/EvenStrongerNormalGuy/EvenStrongerNormalGuy/RageTransformation.png" id="2_yhb7v"]
 [ext_resource type="Texture2D" uid="uid://drx1qrcimalyi" path="res://Assets/EvenStrongerNormalGuy/EvenStrongerNormalGuy/RageWalk.png" id="3_rr8if"]
+[ext_resource type="Texture2D" uid="uid://fo420srufgua" path="res://Assets/EvenStrongerNormalGuy/EvenStrongerNormalGuy/RageHitRightFront.png" id="4_j24u6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b63cf"]
 radius = 360.612
@@ -15,7 +16,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Pivot/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -27,7 +28,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/path = NodePath("Pivot/Sprite2D:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -39,7 +40,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/path = NodePath("Pivot/Sprite2D:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -51,7 +52,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/path = NodePath("Pivot/Sprite2D:vframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -60,6 +61,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [5]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pivot/hit_area/hit_hitbox:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_lhp52"]
 resource_name = "Transform"
@@ -67,7 +80,7 @@ length = 1.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Pivot/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -79,7 +92,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/path = NodePath("Pivot/Sprite2D:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -91,7 +104,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/path = NodePath("Pivot/Sprite2D:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -103,7 +116,60 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/path = NodePath("Pivot/Sprite2D:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_24afc"]
+resource_name = "buff_idle"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_rr8if")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/Sprite2D:vframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -120,7 +186,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Pivot/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -132,7 +198,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/path = NodePath("Pivot/Sprite2D:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -142,26 +208,26 @@ tracks/1/keys = {
 "values": [ExtResource("2_yhb7v")]
 }
 
-[sub_resource type="Animation" id="Animation_24afc"]
-resource_name = "buff_idle"
-length = 1.2
+[sub_resource type="Animation" id="Animation_31s0u"]
+resource_name = "run"
+length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Pivot/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [8, 9, 10, 11]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/path = NodePath("Pivot/Sprite2D:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -173,7 +239,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/path = NodePath("Pivot/Sprite2D:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -185,7 +251,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/path = NodePath("Pivot/Sprite2D:vframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -195,12 +261,78 @@ tracks/3/keys = {
 "values": [5]
 }
 
+[sub_resource type="Animation" id="Animation_sjm4x"]
+resource_name = "hit"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/hit_area/hit_hitbox:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/Sprite2D:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_j24u6")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pivot/Sprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e6os3"]
 _data = {
 "RESET": SubResource("Animation_fpspb"),
 "Transform": SubResource("Animation_lhp52"),
 "buff_idle": SubResource("Animation_24afc"),
-"idle": SubResource("Animation_jkryo")
+"hit": SubResource("Animation_sjm4x"),
+"idle": SubResource("Animation_jkryo"),
+"run": SubResource("Animation_31s0u")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_044h6"]
@@ -209,8 +341,14 @@ animation = &"Transform"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ormt"]
 animation = &"buff_idle"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lc6xb"]
+animation = &"hit"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_12ix5"]
 animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qgpyt"]
+animation = &"run"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ek8dw"]
 advance_mode = 2
@@ -221,36 +359,52 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_el6qr"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8qqcw"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j5v2a"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3o2k2"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4js7r"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_citdu"]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2hg8f"]
 states/Start/position = Vector2(184, 106)
 states/Transform/node = SubResource("AnimationNodeAnimation_044h6")
 states/Transform/position = Vector2(610, 77)
 states/buff_idle/node = SubResource("AnimationNodeAnimation_4ormt")
 states/buff_idle/position = Vector2(657, 168)
+states/hit/node = SubResource("AnimationNodeAnimation_lc6xb")
+states/hit/position = Vector2(884, 168)
 states/idle/node = SubResource("AnimationNodeAnimation_12ix5")
 states/idle/position = Vector2(426, 44)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ek8dw"), "idle", "Transform", SubResource("AnimationNodeStateMachineTransition_3qsk5"), "Transform", "buff_idle", SubResource("AnimationNodeStateMachineTransition_cdxrn")]
-graph_offset = Vector2(-92, 13)
+states/run/node = SubResource("AnimationNodeAnimation_qgpyt")
+states/run/position = Vector2(781, 325)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ek8dw"), "idle", "Transform", SubResource("AnimationNodeStateMachineTransition_3qsk5"), "Transform", "buff_idle", SubResource("AnimationNodeStateMachineTransition_cdxrn"), "buff_idle", "run", SubResource("AnimationNodeStateMachineTransition_el6qr"), "run", "buff_idle", SubResource("AnimationNodeStateMachineTransition_8qqcw"), "run", "hit", SubResource("AnimationNodeStateMachineTransition_j5v2a"), "hit", "run", SubResource("AnimationNodeStateMachineTransition_3o2k2"), "buff_idle", "hit", SubResource("AnimationNodeStateMachineTransition_4js7r"), "hit", "buff_idle", SubResource("AnimationNodeStateMachineTransition_citdu")]
+graph_offset = Vector2(399, 130)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_g81rs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4qdar"]
+radius = 24.53
+height = 78.09
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_jvuiu")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(0, -13)
-scale = Vector2(2, 2)
-texture = ExtResource("2_yhb7v")
-hframes = 4
-vframes = 5
-
 [node name="target_detection" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="target_detection"]
 shape = SubResource("CircleShape2D_b63cf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0.683, -3.845)
 scale = Vector2(0.479, 0.479)
 shape = SubResource("CircleShape2D_ljj02")
@@ -266,5 +420,33 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_g81rs")
 
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+texture_filter = 1
+position = Vector2(0, -13)
+scale = Vector2(2, 2)
+texture = ExtResource("2_yhb7v")
+hframes = 4
+vframes = 5
+
+[node name="hit_area" type="Area2D" parent="Pivot"]
+visible = false
+
+[node name="hit_hitbox" type="CollisionShape2D" parent="Pivot/hit_area"]
+visible = false
+position = Vector2(30, -12)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_4qdar")
+disabled = true
+
+[node name="hit_detection" type="Area2D" parent="Pivot"]
+
+[node name="hit_detection_area" type="CollisionShape2D" parent="Pivot/hit_detection"]
+position = Vector2(30, -12)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_4qdar")
+
 [connection signal="body_entered" from="target_detection" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="target_detection" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Pivot/hit_detection" to="." method="_on_hit_detection_body_entered"]

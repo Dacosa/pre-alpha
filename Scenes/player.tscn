@@ -960,7 +960,7 @@ states/LAND_SPIN/position = Vector2(-204, -18)
 states/MAX_HEIGHT/node = SubResource("AnimationNodeAnimation_3mwxg")
 states/MAX_HEIGHT/position = Vector2(368, -330)
 states/PUNCH/node = SubResource("AnimationNodeAnimation_mmf53")
-states/PUNCH/position = Vector2(-12, 85)
+states/PUNCH/position = Vector2(-21, 90)
 states/RUN/node = SubResource("AnimationNodeAnimation_iogis")
 states/RUN/position = Vector2(503, 133)
 states/Start/position = Vector2(-150, 45)
@@ -971,7 +971,7 @@ states/TURN/position = Vector2(338, 242)
 states/WALK/node = SubResource("AnimationNodeAnimation_wdi6l")
 states/WALK/position = Vector2(46, -103.264)
 transitions = ["Start", "IDLE", SubResource("AnimationNodeStateMachineTransition_uvnbv"), "MAX_HEIGHT", "FALL", SubResource("AnimationNodeStateMachineTransition_oiebc"), "RUN", "FALL", SubResource("AnimationNodeStateMachineTransition_3uhxl"), "IDLE", "DASH", SubResource("AnimationNodeStateMachineTransition_dkkkj"), "DASH", "RUN", SubResource("AnimationNodeStateMachineTransition_3iwad"), "RUN", "IDLE", SubResource("AnimationNodeStateMachineTransition_7xvu5"), "FALL", "LAND_BEGIN", SubResource("AnimationNodeStateMachineTransition_00jiu"), "LAND_BEGIN", "LAND_END", SubResource("AnimationNodeStateMachineTransition_ocbp4"), "LAND_END", "IDLE", SubResource("AnimationNodeStateMachineTransition_alx25"), "LAND_SPIN", "IDLE", SubResource("AnimationNodeStateMachineTransition_murye"), "DASH", "IDLE", SubResource("AnimationNodeStateMachineTransition_4jtiv"), "DASH", "TURN", SubResource("AnimationNodeStateMachineTransition_40mo7"), "TURN", "DASH", SubResource("AnimationNodeStateMachineTransition_kk6dw"), "IDLE", "CROUCHING", SubResource("AnimationNodeStateMachineTransition_h1a1y"), "CROUCHING", "IDLE", SubResource("AnimationNodeStateMachineTransition_o5wev"), "JUMP", "MAX_HEIGHT", SubResource("AnimationNodeStateMachineTransition_cpukj"), "JUMP", "AIR_DODGE", SubResource("AnimationNodeStateMachineTransition_5mokm"), "FALL", "AIR_DODGE", SubResource("AnimationNodeStateMachineTransition_hdrc2"), "AIR_DODGE", "FALL", SubResource("AnimationNodeStateMachineTransition_lnxbc"), "AIR_DODGE", "LAND_BEGIN", SubResource("AnimationNodeStateMachineTransition_l0c0r"), "RUN", "JUMP", SubResource("AnimationNodeStateMachineTransition_vlp6h"), "IDLE", "JUMP", SubResource("AnimationNodeStateMachineTransition_hus5u"), "DASH", "JUMP", SubResource("AnimationNodeStateMachineTransition_tyji5"), "CROUCHING", "JUMP", SubResource("AnimationNodeStateMachineTransition_37s5k"), "FALL", "JUMP", SubResource("AnimationNodeStateMachineTransition_7lcr5"), "IDLE", "PUNCH", SubResource("AnimationNodeStateMachineTransition_af3nr"), "PUNCH", "IDLE", SubResource("AnimationNodeStateMachineTransition_x3sa4"), "IDLE", "TAKE_DAMAGE", SubResource("AnimationNodeStateMachineTransition_4hcrk"), "TAKE_DAMAGE", "IDLE", SubResource("AnimationNodeStateMachineTransition_il5p4"), "IDLE", "WALK", SubResource("AnimationNodeStateMachineTransition_qg3k5"), "WALK", "IDLE", SubResource("AnimationNodeStateMachineTransition_aulhh"), "DASH", "FALL", SubResource("AnimationNodeStateMachineTransition_xo3n3"), "WALK", "RUN", SubResource("AnimationNodeStateMachineTransition_4xgxm"), "IDLE", "DEATH", SubResource("AnimationNodeStateMachineTransition_bdjhv"), "DEATH", "End", SubResource("AnimationNodeStateMachineTransition_ye2we")]
-graph_offset = Vector2(-42, -28.264)
+graph_offset = Vector2(-200, -10.264)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_peu0t"]
 
