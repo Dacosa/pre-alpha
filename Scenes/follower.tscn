@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bl1uwr3aycbua"]
+[gd_scene load_steps=30 format=3 uid="uid://bl1uwr3aycbua"]
 
 [ext_resource type="Script" path="res://Scripts/follower.gd" id="1_jvuiu"]
 [ext_resource type="Texture2D" uid="uid://v71oqhamo6og" path="res://Assets/EvenStrongerNormalGuy/EvenStrongerNormalGuy/RageTransformation.png" id="2_yhb7v"]
@@ -179,6 +179,70 @@ tracks/3/keys = {
 "values": [5]
 }
 
+[sub_resource type="Animation" id="Animation_sjm4x"]
+resource_name = "hit"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/hit_area/hit_hitbox:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/Sprite2D:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_j24u6")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pivot/Sprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+
 [sub_resource type="Animation" id="Animation_jkryo"]
 resource_name = "idle"
 length = 0.8
@@ -261,70 +325,6 @@ tracks/3/keys = {
 "values": [5]
 }
 
-[sub_resource type="Animation" id="Animation_sjm4x"]
-resource_name = "hit"
-length = 1.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/hit_area/hit_hitbox:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.5, 1, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, true, false, false, true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Pivot/Sprite2D:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Pivot/Sprite2D:texture")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("4_j24u6")]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Pivot/Sprite2D:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e6os3"]
 _data = {
 "RESET": SubResource("Animation_fpspb"),
@@ -363,17 +363,16 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8qqcw"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j5v2a"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3o2k2"]
-switch_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4js7r"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_citdu"]
 switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lcoqt"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2hg8f"]
+states/End/position = Vector2(1099, 126)
 states/Start/position = Vector2(184, 106)
 states/Transform/node = SubResource("AnimationNodeAnimation_044h6")
 states/Transform/position = Vector2(610, 77)
@@ -385,8 +384,8 @@ states/idle/node = SubResource("AnimationNodeAnimation_12ix5")
 states/idle/position = Vector2(426, 44)
 states/run/node = SubResource("AnimationNodeAnimation_qgpyt")
 states/run/position = Vector2(781, 325)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ek8dw"), "idle", "Transform", SubResource("AnimationNodeStateMachineTransition_3qsk5"), "Transform", "buff_idle", SubResource("AnimationNodeStateMachineTransition_cdxrn"), "buff_idle", "run", SubResource("AnimationNodeStateMachineTransition_el6qr"), "run", "buff_idle", SubResource("AnimationNodeStateMachineTransition_8qqcw"), "run", "hit", SubResource("AnimationNodeStateMachineTransition_j5v2a"), "hit", "run", SubResource("AnimationNodeStateMachineTransition_3o2k2"), "buff_idle", "hit", SubResource("AnimationNodeStateMachineTransition_4js7r"), "hit", "buff_idle", SubResource("AnimationNodeStateMachineTransition_citdu")]
-graph_offset = Vector2(399, 130)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ek8dw"), "idle", "Transform", SubResource("AnimationNodeStateMachineTransition_3qsk5"), "Transform", "buff_idle", SubResource("AnimationNodeStateMachineTransition_cdxrn"), "buff_idle", "run", SubResource("AnimationNodeStateMachineTransition_el6qr"), "run", "buff_idle", SubResource("AnimationNodeStateMachineTransition_8qqcw"), "buff_idle", "hit", SubResource("AnimationNodeStateMachineTransition_4js7r"), "hit", "buff_idle", SubResource("AnimationNodeStateMachineTransition_citdu"), "run", "hit", SubResource("AnimationNodeStateMachineTransition_lcoqt")]
+graph_offset = Vector2(351, 104)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_g81rs"]
 
@@ -431,16 +430,16 @@ hframes = 4
 vframes = 5
 
 [node name="hit_area" type="Area2D" parent="Pivot"]
-visible = false
 
 [node name="hit_hitbox" type="CollisionShape2D" parent="Pivot/hit_area"]
-visible = false
 position = Vector2(30, -12)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4qdar")
 disabled = true
 
 [node name="hit_detection" type="Area2D" parent="Pivot"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="hit_detection_area" type="CollisionShape2D" parent="Pivot/hit_detection"]
 position = Vector2(30, -12)
