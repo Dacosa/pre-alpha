@@ -1,6 +1,6 @@
 [gd_scene load_steps=92 format=3 uid="uid://b8jgplaunof4n"]
 
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_erb0d"]
+[ext_resource type="Script" path="res://Scripts/Player2.gd" id="1_6vh33"]
 [ext_resource type="Texture2D" uid="uid://clup0f4c3sfea" path="res://Assets/AssetPack-V1/Sprite Sheets/Character Idle 48x48.png" id="2_8apwy"]
 [ext_resource type="PackedScene" uid="uid://b0mfkr670s7ls" path="res://Scenes/Hitbox.tscn" id="3_3qpbh"]
 [ext_resource type="Texture2D" uid="uid://cwnflsdw2q17u" path="res://Assets/Asset Pack-V3/Player Hurt-Damaged/Player Hurt 48x48.png" id="4_e1rc2"]
@@ -1006,7 +1006,7 @@ radius = 33.0151
 [node name="Player2" type="CharacterBody2D"]
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("1_erb0d")
+script = ExtResource("1_6vh33")
 
 [node name="Pivot" type="Node2D" parent="."]
 scale = Vector2(-1, 1)
