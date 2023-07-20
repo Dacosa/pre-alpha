@@ -3,8 +3,14 @@
 [ext_resource type="Theme" uid="uid://cym6n88rrqd2k" path="res://resources/Font/mainfont.tres" id="1_an2ti"]
 [ext_resource type="Script" path="res://UI/creditsmenu.gd" id="2_n5sld"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3sfsx"]
-bg_color = Color(0, 0.0784314, 0.188235, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhvv2"]
+bg_color = Color(0.0470588, 0.027451, 0.105882, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.278722, 0.213021, 0.467328, 1)
+border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwqre"]
 content_margin_left = 50.0
@@ -53,7 +59,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_3sfsx")
+theme_override_styles/panel = SubResource("StyleBoxFlat_xhvv2")
 
 [node name="PanelContainer" type="PanelContainer" parent="PanelContainer"]
 layout_mode = 2

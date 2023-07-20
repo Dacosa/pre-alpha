@@ -1049,15 +1049,6 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_8mgl7")
 metadata/_edit_use_anchors_ = true
 
 [node name="Victory_words_1" parent="CanvasLayer" instance=ExtResource("14_4ttsa")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 685.0
-offset_top = 39.0
-offset_right = 793.0
-offset_bottom = 49.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="pickablearea" type="Area2D" parent="."]
 collision_layer = 0

@@ -67,7 +67,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(4, 6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.152941, 0.196078, 0.254902, 1), Color(0.152941, 0.196078, 0.254902, 0)]
+"values": [Color(0.0509804, 0.027451, 0.105882, 1), Color(0.0509804, 0.027451, 0.105882, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -101,6 +101,7 @@ _data = {
 }
 
 [node name="Control_UI" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

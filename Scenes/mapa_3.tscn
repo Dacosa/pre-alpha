@@ -619,6 +619,10 @@ sources/0 = SubResource("TileSetAtlasSource_xw5qx")
 
 [node name="Mapa3" type="Node2D"]
 
+[node name="Player2" parent="." instance=ExtResource("5_2dlym")]
+z_index = 4
+position = Vector2(511, 75)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(18, -124)
 zoom = Vector2(0.8, 0.8)
@@ -649,9 +653,5 @@ pitch_scale = 1.5
 autoplay = true
 
 [node name="Player" parent="." instance=ExtResource("4_6jwqj")]
-z_index = 1
+z_index = 3
 position = Vector2(-509, 71)
-
-[node name="Player2" parent="." instance=ExtResource("5_2dlym")]
-z_index = 1
-position = Vector2(511, 75)

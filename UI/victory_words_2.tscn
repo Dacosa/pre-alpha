@@ -3,13 +3,13 @@
 [ext_resource type="Theme" uid="uid://cym6n88rrqd2k" path="res://resources/Font/mainfont.tres" id="1_53jlx"]
 [ext_resource type="Script" path="res://UI/victory_words_2.gd" id="2_yg7rm"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khych"]
-bg_color = Color(0.235294, 0.341176, 0.490196, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0, 0.133333, 0.27451, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tugfb"]
+bg_color = Color(0.0509804, 0.027451, 0.105882, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.392157, 0.360784, 0.560784, 1)
 border_blend = true
 
 [node name="Victory_words_2" type="Control"]
@@ -32,7 +32,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_khych")
+theme_override_styles/panel = SubResource("StyleBoxFlat_tugfb")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2

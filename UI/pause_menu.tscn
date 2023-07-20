@@ -3,13 +3,13 @@
 [ext_resource type="Theme" uid="uid://cym6n88rrqd2k" path="res://resources/Font/mainfont.tres" id="1_c3yp3"]
 [ext_resource type="Script" path="res://UI/pause_menu.gd" id="2_jr6cg"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpkqq"]
-bg_color = Color(0.235294, 0.341176, 0.490196, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0, 0.133333, 0.27451, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y045h"]
+bg_color = Color(0.0509804, 0.027451, 0.105882, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.392157, 0.360784, 0.560784, 1)
 border_blend = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u58af"]
@@ -79,7 +79,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_mpkqq")
+theme_override_styles/panel = SubResource("StyleBoxFlat_y045h")
 
 [node name="MarginContainer" type="MarginContainer" parent="Pause_PanelContainer"]
 layout_mode = 2
