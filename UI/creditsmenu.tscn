@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cup6qwxrp40od"]
+[gd_scene load_steps=8 format=3 uid="uid://cup6qwxrp40od"]
 
 [ext_resource type="Theme" uid="uid://cym6n88rrqd2k" path="res://resources/Font/mainfont.tres" id="1_an2ti"]
 [ext_resource type="Script" path="res://UI/creditsmenu.gd" id="2_n5sld"]
@@ -33,6 +33,8 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0, 0.0235294, 0.0823529, 1)
 border_blend = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ogxc"]
 
 [node name="Creditsmenu" type="Control"]
 layout_mode = 3
@@ -70,8 +72,26 @@ theme_override_constants/margin_bottom = 30
 
 [node name="Label" type="Label" parent="PanelContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Estos son los creditos XDDDD"
+text = "SPECIAL THANKS TO:
+
+Player Animations by Zegley https://zegley.itch.io/2d-platformermetroidvania-asset-pack
+
+TileSet by egordorichev https://egordorichev.itch.io/adve
+
+Follower animations by Kalaan https://kalann.itch.io/a-normal-guy-that-transforms-into-an-even-stronger-normal-guy
+
+Font by Nimble Beasts Collective https://nimblebeastscollective.itch.io/magosfonts
+
+Rat Animations by DeepDiveGameStudio https://deepdivegamestudio.itch.io/vermin-asset-pack
+
+Fire Animations by Elska https://elska.itch.io/pixel-fire
+
+Sounds by Danielsoundsgood, JDWasabi and tubelesshalo
+https://danielsoundsgood.itch.io/free-deadly-kombat-sound-effects
+https://jdwasabi.itch.io/8-bit-16-bit-sound-effects-pack
+https://tubelesshalo.itch.io/free-music-loop-pack
+
+Healthbar Sprite by adwitr https://adwitr.itch.io/pixel-health-bar-asset-pack-2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -86,7 +106,7 @@ layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_bottom = 30
 
 [node name="ExitCredits" type="Button" parent="PanelContainer/Exit_PanelContainer/MarginContainer"]
 unique_name_in_owner = true
@@ -96,3 +116,24 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_stepx")
 text = "Back"
+
+[node name="Title_PanelContainer" type="PanelContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0ogxc")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/Title_PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="PanelContainer/Title_PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_stepx")
+text = "The Credits"

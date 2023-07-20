@@ -5,7 +5,7 @@
 [ext_resource type="StyleBox" uid="uid://ixabtdacvopu" path="res://resources/main_boxstyle.tres" id="2_xceqx"]
 [ext_resource type="AudioStream" uid="uid://c1i5fuqsti5cp" path="res://Sound effects/RetryPunk.wav" id="4_oihuh"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5roql"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxe1d"]
 bg_color = Color(0.235294, 0.341176, 0.490196, 1)
 border_width_left = 10
 border_width_top = 10
@@ -79,7 +79,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5roql")
+theme_override_styles/panel = SubResource("StyleBoxFlat_pxe1d")
 
 [node name="MarginContainer" type="MarginContainer" parent="Main_PanelContainer"]
 layout_mode = 2
