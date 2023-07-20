@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6t7gm28eatmt"]
+[gd_scene load_steps=11 format=3 uid="uid://b6t7gm28eatmt"]
 
 [ext_resource type="Theme" uid="uid://cym6n88rrqd2k" path="res://resources/Font/mainfont.tres" id="1_ytmex"]
 [ext_resource type="Script" path="res://UI/mapsmenu.gd" id="2_3kay5"]
 [ext_resource type="StyleBox" uid="uid://ixabtdacvopu" path="res://resources/main_boxstyle.tres" id="2_xceqx"]
+[ext_resource type="AudioStream" uid="uid://c1i5fuqsti5cp" path="res://Sound effects/RetryPunk.wav" id="4_oihuh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5roql"]
 bg_color = Color(0.235294, 0.341176, 0.490196, 1)
@@ -157,3 +158,8 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_b1k6u")
 text = "Return"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_oihuh")
+volume_db = -25.0
+bus = &"filter"

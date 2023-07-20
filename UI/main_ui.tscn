@@ -1,15 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://c87vafhx6pvqu"]
+[gd_scene load_steps=13 format=3 uid="uid://c87vafhx6pvqu"]
 
 [ext_resource type="Theme" uid="uid://cym6n88rrqd2k" path="res://resources/Font/mainfont.tres" id="1_kpggj"]
 [ext_resource type="StyleBox" uid="uid://ixabtdacvopu" path="res://resources/main_boxstyle.tres" id="2_q3soc"]
 [ext_resource type="Script" path="res://UI/main_ui.gd" id="2_s3206"]
 [ext_resource type="Texture2D" uid="uid://da532mgbbu23o" path="res://resources/Captura de pantalla 2023-07-02 030006.png" id="3_dx0ox"]
+[ext_resource type="FontFile" uid="uid://hh781cthlgfj" path="res://resources/Font/magofonts/mago3.ttf" id="5_6dw41"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i17jt"]
 texture = ExtResource("3_dx0ox")
 
-[sub_resource type="LabelSettings" id="LabelSettings_metuk"]
-font_size = 70
+[sub_resource type="LabelSettings" id="LabelSettings_kdux8"]
+line_spacing = 0.0
+font_size = 100
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7gmjo"]
 
@@ -52,6 +54,11 @@ border_width_bottom = 5
 border_color = Color(0, 0.0235294, 0.0823529, 1)
 border_blend = true
 
+[sub_resource type="Theme" id="Theme_jiygh"]
+default_font = ExtResource("5_6dw41")
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("5_6dw41")
+
 [node name="Main_menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -63,6 +70,7 @@ theme = ExtResource("1_kpggj")
 script = ExtResource("2_s3206")
 
 [node name="Main_PanelContainer" type="PanelContainer" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -93,10 +101,13 @@ theme_override_constants/margin_right = 60
 theme_override_constants/margin_bottom = 100
 
 [node name="Label" type="Label" parent="Main_PanelContainer/MarginContainer/Title_PanelContainer/MarginContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 8
-text = "**Insertar nombre del juego**"
-label_settings = SubResource("LabelSettings_metuk")
+theme_override_constants/line_spacing = 0
+text = "*Toss n' Tumble*
+"
+label_settings = SubResource("LabelSettings_kdux8")
 vertical_alignment = 1
 
 [node name="Option_PanelContainer" type="PanelContainer" parent="Main_PanelContainer/MarginContainer"]
@@ -117,6 +128,7 @@ layout_mode = 2
 
 [node name="Play" type="Button" parent="Main_PanelContainer/MarginContainer/Option_PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 50
@@ -125,6 +137,7 @@ text = "Play game :D"
 
 [node name="Credits" type="Button" parent="Main_PanelContainer/MarginContainer/Option_PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 40
@@ -134,8 +147,30 @@ text = "Credits :o
 
 [node name="Exit" type="Button" parent="Main_PanelContainer/MarginContainer/Option_PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_snnos")
 text = "Exit :("
+
+[node name="Nombre_equipo" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = 997.0
+offset_top = 582.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="Nombre_equipo"]
+layout_mode = 2
+theme = SubResource("Theme_jiygh")
+theme_override_font_sizes/font_size = 30
+text = "Pre-Alpha Games"

@@ -7,5 +7,7 @@ func _ready():
 	ExitCredits.pressed.connect(_on_ExitCredits_pressed)
 	
 func _on_ExitCredits_pressed():
-	get_tree().change_scene_to_file("res://UI/main_ui.tscn")
+	self.hide()
+	get_parent().main_menu.show()
+	get_parent().audio_stream_player.bus = "Master"
 	

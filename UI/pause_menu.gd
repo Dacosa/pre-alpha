@@ -27,4 +27,5 @@ func _on_Retry_pressed():
 
 func _on_Main_menu_pressed():
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://UI/main_ui.tscn")
+	get_tree().change_scene_to_file("res://UI/control_ui.tscn")
+	

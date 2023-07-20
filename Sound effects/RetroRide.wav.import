@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://uf4prbwyrook"
+path="res://.godot/imported/RetroRide.wav-f1e16487545db5230af9039af37aa102.sample"
+
+[deps]
+
+source_file="res://Sound effects/RetroRide.wav"
+dest_files=["res://.godot/imported/RetroRide.wav-f1e16487545db5230af9039af37aa102.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
