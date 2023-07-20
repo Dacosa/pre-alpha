@@ -9,7 +9,7 @@ const GRAVITY = 1500
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var pivot = $Pivot
-@onready var hit_hitbox = $Pivot/hit_area/hit_hitbox
+@onready var hit_area = $Pivot/hit_area
 @onready var hit_detection_area = $Pivot/hit_detection/hit_detection_area
 @onready var hit_detection = $Pivot/hit_detection
 @onready var audio_golpe_1 = $Audio_golpe1
@@ -28,7 +28,8 @@ var overlapping = []
 
 func _ready():
 	animation_tree.active = true
-	hit_detection.body_entered.connect(_on_hit_detection_body_entered)
+	#hit_detection.body_entered.connect(_on_hit_detection_body_entered)
+	#hit_area.body_entered.connect(_on_hitbox_entered)
 
 func _physics_process(delta):
 	move_and_slide()
@@ -55,8 +56,7 @@ func _physics_process(delta):
 			
 		#Golpes
 		
-		
-		
+
 
 func launch(_v):
 	playback.travel("Transform")
@@ -84,8 +84,8 @@ func _on_area_2d_body_exited(body):
 		
 
 func _on_hit_detection_body_entered(body):
-	if body.name == "Player" and awake:
-		playback.travel("hit")
+	if (body.name == "Player" or body.name == "Player2") and awake:
+		playback.start("hit")
 		
 		if audio_golpe_1.get_playback_position() == 0 and audio_golpe_2.get_playback_position() == 0 and audio_golpe_3.get_playback_position() == 0:
 			var index = randi_range(1,3) 
@@ -95,3 +95,8 @@ func _on_hit_detection_body_entered(body):
 				get_tree().create_timer(0.5).timeout.connect(audio_golpe_2.play)
 			else: 
 				get_tree().create_timer(0.5).timeout.connect(audio_golpe_1.play)
+		
+func _on_hitbox_entered(body: Node):
+	if body.has_method("get_smashed"):
+		body.get_smashed(sign(velocity))
+	

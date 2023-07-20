@@ -463,4 +463,5 @@ volume_db = -15.0
 
 [connection signal="body_entered" from="target_detection" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="target_detection" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Pivot/hit_area" to="." method="_on_hitbox_entered"]
 [connection signal="body_entered" from="Pivot/hit_detection" to="." method="_on_hit_detection_body_entered"]

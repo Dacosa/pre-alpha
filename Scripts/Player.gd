@@ -274,7 +274,12 @@ func launch(v):
 			time = 0
 		velocity = v
 		
-	
+
+func get_smashed(_direction):
+	health -= 50
+	velocity.x = _direction.x*1200
+	velocity.y = -1200
+		
 #healthbar, damage
 func take_damage():
 	in_damage = true
