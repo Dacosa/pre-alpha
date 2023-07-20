@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cokeke7y0pn0i"]
+[gd_scene load_steps=6 format=3 uid="uid://cokeke7y0pn0i"]
 
 [ext_resource type="Texture2D" uid="uid://b2p3nuyd08ksn" path="res://Assets/Adve tileset/tiles.png" id="1_dwnk1"]
 [ext_resource type="PackedScene" uid="uid://bjgtmufb3eshx" path="res://Scenes/refrigerator.tscn" id="2_8nfql"]
+[ext_resource type="AudioStream" uid="uid://duo6ceq4wbnvg" path="res://Sound effects/Runway.wav" id="3_y6obi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xw5qx"]
 texture = ExtResource("1_dwnk1")
@@ -638,3 +639,9 @@ position = Vector2(202, 70)
 
 [node name="Objeto6" parent="." instance=ExtResource("2_8nfql")]
 position = Vector2(468, 67)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_y6obi")
+volume_db = -20.0
+pitch_scale = 1.5
+autoplay = true

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dy1cabn02n6wc"]
+[gd_scene load_steps=7 format=3 uid="uid://dy1cabn02n6wc"]
 
 [ext_resource type="Texture2D" uid="uid://b2p3nuyd08ksn" path="res://Assets/Adve tileset/tiles.png" id="1_82ort"]
 [ext_resource type="PackedScene" uid="uid://0rh7iumjx706" path="res://Scenes/snow_tree.tscn" id="2_xsu2y"]
 [ext_resource type="PackedScene" uid="uid://bl1uwr3aycbua" path="res://Scenes/follower.tscn" id="3_s1hhd"]
+[ext_resource type="AudioStream" uid="uid://bw6jdv6lvmob2" path="res://Sound effects/Zamming.wav" id="4_vkm88"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xw5qx"]
 texture = ExtResource("1_82ort")
@@ -591,3 +592,8 @@ position = Vector2(390, -149)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_s1hhd")]
 position = Vector2(-216, 195)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vkm88")
+volume_db = -20.0
+autoplay = true

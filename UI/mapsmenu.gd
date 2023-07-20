@@ -16,13 +16,13 @@ func _ready():
 	
 
 func _on_mapa_1_pressed():
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	get_tree().change_scene_to_file("res://Scenes/mapa_1.tscn")
 
 func _on_mapa_2_pressed():
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	get_tree().change_scene_to_file("res://Scenes/mapa_2.tscn")
 
 func _on_mapa_3_pressed():
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	get_tree().change_scene_to_file("res://Scenes/mapa_3.tscn")
 
 func _on_Back_pressed():
 	self.hide()
