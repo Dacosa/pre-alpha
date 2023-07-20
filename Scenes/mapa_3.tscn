@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cokeke7y0pn0i"]
+[gd_scene load_steps=8 format=3 uid="uid://cokeke7y0pn0i"]
 
 [ext_resource type="Texture2D" uid="uid://b2p3nuyd08ksn" path="res://Assets/Adve tileset/tiles.png" id="1_dwnk1"]
 [ext_resource type="PackedScene" uid="uid://bjgtmufb3eshx" path="res://Scenes/refrigerator.tscn" id="2_8nfql"]
 [ext_resource type="AudioStream" uid="uid://duo6ceq4wbnvg" path="res://Sound effects/Runway.wav" id="3_y6obi"]
+[ext_resource type="PackedScene" uid="uid://dvnt6bf4o56gb" path="res://Scenes/player.tscn" id="4_6jwqj"]
+[ext_resource type="PackedScene" uid="uid://b8jgplaunof4n" path="res://Scenes/player2.tscn" id="5_2dlym"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xw5qx"]
 texture = ExtResource("1_dwnk1")
@@ -645,3 +647,11 @@ stream = ExtResource("3_y6obi")
 volume_db = -20.0
 pitch_scale = 1.5
 autoplay = true
+
+[node name="Player" parent="." instance=ExtResource("4_6jwqj")]
+z_index = 1
+position = Vector2(-509, 71)
+
+[node name="Player2" parent="." instance=ExtResource("5_2dlym")]
+z_index = 1
+position = Vector2(511, 75)

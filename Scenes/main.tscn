@@ -1,11 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://bi808k403yhv3"]
+[gd_scene load_steps=20 format=3 uid="uid://bi808k403yhv3"]
 
 [ext_resource type="Texture2D" uid="uid://dtu40hnx5ywtp" path="res://Assets/bg.jpg" id="1_vijd1"]
 [ext_resource type="PackedScene" uid="uid://dvnt6bf4o56gb" path="res://Scenes/player.tscn" id="2_rojcc"]
 [ext_resource type="PackedScene" uid="uid://b8jgplaunof4n" path="res://Scenes/player2.tscn" id="3_5q3rs"]
 [ext_resource type="Texture2D" uid="uid://b2p3nuyd08ksn" path="res://Assets/Adve tileset/tiles.png" id="3_hkt7m"]
 [ext_resource type="Texture2D" uid="uid://bess2p3kb1xfi" path="res://Assets/Image10000_scaled_4x_pngcrushed.png" id="4_41bsd"]
-[ext_resource type="Script" path="res://Scripts/Player2.gd" id="4_gq1ad"]
 [ext_resource type="Script" path="res://Scripts/primerObjeto.gd" id="4_h286x"]
 [ext_resource type="PackedScene" uid="uid://bnea8t7vqcmj5" path="res://Scenes/Hurtbox.tscn" id="5_1ihx6"]
 [ext_resource type="PackedScene" uid="uid://bx7mb8xvqhixr" path="res://Scenes/pick_RAT.tscn" id="7_wd8we"]
@@ -611,7 +610,6 @@ texture = ExtResource("1_vijd1")
 [node name="Player2" parent="." instance=ExtResource("3_5q3rs")]
 z_index = 4
 position = Vector2(493, 51)
-script = ExtResource("4_gq1ad")
 
 [node name="AnimationTree" parent="Player2" index="3"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_pfknn")

@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dx1v10k86phlk"]
+[gd_scene load_steps=7 format=3 uid="uid://dx1v10k86phlk"]
 
 [ext_resource type="Texture2D" uid="uid://b2p3nuyd08ksn" path="res://Assets/Adve tileset/tiles.png" id="1_a3ikj"]
 [ext_resource type="AudioStream" uid="uid://uf4prbwyrook" path="res://Sound effects/RetroRide.wav" id="2_mf3n6"]
+[ext_resource type="PackedScene" uid="uid://dvnt6bf4o56gb" path="res://Scenes/player.tscn" id="3_ox87e"]
+[ext_resource type="PackedScene" uid="uid://b8jgplaunof4n" path="res://Scenes/player2.tscn" id="4_mokpc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xw5qx"]
 texture = ExtResource("1_a3ikj")
@@ -578,3 +580,11 @@ layer_0/tile_data = PackedInt32Array(983000, 65536, 4, 983001, 65536, 4, 983002,
 stream = ExtResource("2_mf3n6")
 volume_db = -20.0
 autoplay = true
+
+[node name="Player" parent="." instance=ExtResource("3_ox87e")]
+z_index = 1
+position = Vector2(-581, 168)
+
+[node name="Player2" parent="." instance=ExtResource("4_mokpc")]
+z_index = 1
+position = Vector2(607, 141)
