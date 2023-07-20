@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://dvnt6bf4o56gb"]
+[gd_scene load_steps=93 format=3 uid="uid://dvnt6bf4o56gb"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_5gb51"]
 [ext_resource type="Texture2D" uid="uid://clup0f4c3sfea" path="res://Assets/AssetPack-V1/Sprite Sheets/Character Idle 48x48.png" id="2_rhjl5"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://by2atsu58x4qw" path="res://Assets/Asset Pack-V3/PlayerWalk/PlayerWalk 48x48.png" id="11_sovnh"]
 [ext_resource type="Texture2D" uid="uid://b8fsqbf0irudq" path="res://Assets/Asset Pack-V3/Player Death/Player Death 64x64.png" id="12_a3ly2"]
 [ext_resource type="PackedScene" uid="uid://b0l21pdg4xj1c" path="res://UI/victory_words_2.tscn" id="12_uo1gj"]
+[ext_resource type="AudioStream" uid="uid://cnwnmj4sh0sf6" path="res://Sound effects/punch_long_whoosh_21.wav" id="16_cflc4"]
+[ext_resource type="AudioStream" uid="uid://dokjvkt6vcqad" path="res://Sound effects/Hit damage 1.wav" id="17_da8fg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5nvh0"]
 radius = 7.0
@@ -567,6 +569,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [true, true, true, true, false, false, true, true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Audio_golpe1:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_cfytn"]
 length = 0.001
@@ -698,6 +712,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio_Take_damage:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_1atjm"]
@@ -1037,6 +1063,14 @@ shape = SubResource("CircleShape2D_g00px")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Audio_golpe1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_cflc4")
+volume_db = -15.0
+
+[node name="Audio_Take_damage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_da8fg")
+volume_db = -10.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 

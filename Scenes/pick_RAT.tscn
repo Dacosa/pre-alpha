@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bx7mb8xvqhixr"]
+[gd_scene load_steps=14 format=3 uid="uid://bx7mb8xvqhixr"]
 
 [ext_resource type="Script" path="res://Scripts/pick_RAT.gd" id="1_qotdr"]
 [ext_resource type="Texture2D" uid="uid://psm1dnedqwge" path="res://Assets/Vermin Free Asset Pack/Animations/Infected Mouse/InfectedMouseIdleSide.png" id="2_8k03c"]
 [ext_resource type="Script" path="res://Scripts/gas_toxico.gd" id="3_yy134"]
+[ext_resource type="AudioStream" uid="uid://cl58b74ax3or1" path="res://Sound effects/somersault_01.wav" id="4_lla2r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81jlv"]
 
@@ -121,6 +122,10 @@ autostart = true
 
 [node name="Direction_Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Audio_lanzar" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_lla2r")
+volume_db = -10.0
 
 [connection signal="timeout" from="damage_area_Timer" to="." method="_on_damage_area_timer_timeout"]
 [connection signal="timeout" from="Direction_Timer" to="." method="_on_direction_timer_timeout"]

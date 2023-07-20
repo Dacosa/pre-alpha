@@ -1,9 +1,12 @@
-[gd_scene load_steps=30 format=3 uid="uid://bl1uwr3aycbua"]
+[gd_scene load_steps=33 format=3 uid="uid://bl1uwr3aycbua"]
 
 [ext_resource type="Script" path="res://Scripts/follower.gd" id="1_jvuiu"]
 [ext_resource type="Texture2D" uid="uid://v71oqhamo6og" path="res://Assets/EvenStrongerNormalGuy/EvenStrongerNormalGuy/RageTransformation.png" id="2_yhb7v"]
 [ext_resource type="Texture2D" uid="uid://drx1qrcimalyi" path="res://Assets/EvenStrongerNormalGuy/EvenStrongerNormalGuy/RageWalk.png" id="3_rr8if"]
 [ext_resource type="Texture2D" uid="uid://fo420srufgua" path="res://Assets/EvenStrongerNormalGuy/EvenStrongerNormalGuy/RageHitRightFront.png" id="4_j24u6"]
+[ext_resource type="AudioStream" uid="uid://de24x3w3vhpvm" path="res://Sound effects/face_hit_Large_20.wav" id="5_055bw"]
+[ext_resource type="AudioStream" uid="uid://cgfa7fii515my" path="res://Sound effects/face_hit_Large_29.wav" id="6_fij8u"]
+[ext_resource type="AudioStream" uid="uid://bpysrxtnuv1gj" path="res://Sound effects/face_hit_Large_78.wav" id="7_mbbf3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b63cf"]
 radius = 360.612
@@ -385,7 +388,7 @@ states/idle/position = Vector2(426, 44)
 states/run/node = SubResource("AnimationNodeAnimation_qgpyt")
 states/run/position = Vector2(781, 325)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ek8dw"), "idle", "Transform", SubResource("AnimationNodeStateMachineTransition_3qsk5"), "Transform", "buff_idle", SubResource("AnimationNodeStateMachineTransition_cdxrn"), "buff_idle", "run", SubResource("AnimationNodeStateMachineTransition_el6qr"), "run", "buff_idle", SubResource("AnimationNodeStateMachineTransition_8qqcw"), "buff_idle", "hit", SubResource("AnimationNodeStateMachineTransition_4js7r"), "hit", "buff_idle", SubResource("AnimationNodeStateMachineTransition_citdu"), "run", "hit", SubResource("AnimationNodeStateMachineTransition_lcoqt")]
-graph_offset = Vector2(351, 104)
+graph_offset = Vector2(-231, -45)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_g81rs"]
 
@@ -445,6 +448,18 @@ collision_mask = 3
 position = Vector2(30, -12)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4qdar")
+
+[node name="Audio_golpe1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_055bw")
+volume_db = -15.0
+
+[node name="Audio_golpe2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_fij8u")
+volume_db = -15.0
+
+[node name="Audio_golpe3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_mbbf3")
+volume_db = -15.0
 
 [connection signal="body_entered" from="target_detection" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="target_detection" to="." method="_on_area_2d_body_exited"]

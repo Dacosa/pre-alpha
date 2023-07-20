@@ -3,6 +3,7 @@ extends Pickable
 @onready var gas_toxico = $gas_toxico
 @onready var marker_2d = $Marker2D
 @onready var sprite_2d = $Sprite2D
+@onready var audio_lanzar = $Audio_lanzar
 
 
 var damage_gas_area = preload("res://Scenes/Gas_Damage.tscn")
@@ -10,7 +11,7 @@ var velocity_min = 250
 var velocity_max = 300
 var rotation_lock = true
 var was_grabbed = false
-var launch_speed = Vector2(1000,-500)
+var launch_speed = Vector2(800,-400)
 var direction_x = randi_range(-1,1)
 var scale_in0 = -1
 
@@ -31,6 +32,7 @@ func passive_off():
 	
 	# Lanzamiento
 	linear_velocity = Vector2(launch_speed.x*scale.x, launch_speed.y)
+	audio_lanzar.play()
 	
 	# Tiempo de vida, luego de ser botado
 	get_tree().create_timer(15).timeout.connect(queue_free)

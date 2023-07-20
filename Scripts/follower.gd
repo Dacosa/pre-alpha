@@ -12,6 +12,11 @@ const GRAVITY = 1500
 @onready var hit_hitbox = $Pivot/hit_area/hit_hitbox
 @onready var hit_detection_area = $Pivot/hit_detection/hit_detection_area
 @onready var hit_detection = $Pivot/hit_detection
+@onready var audio_golpe_1 = $Audio_golpe1
+@onready var audio_golpe_2 = $Audio_golpe2
+@onready var audio_golpe_3 = $Audio_golpe3
+
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -81,3 +86,12 @@ func _on_area_2d_body_exited(body):
 func _on_hit_detection_body_entered(body):
 	if body.name == "Player" and awake:
 		playback.travel("hit")
+		
+		if audio_golpe_1.get_playback_position() == 0 and audio_golpe_2.get_playback_position() == 0 and audio_golpe_3.get_playback_position() == 0:
+			var index = randi_range(1,3) 
+			if index == 1:
+				get_tree().create_timer(0.5).timeout.connect(audio_golpe_3.play)
+			elif index == 2:
+				get_tree().create_timer(0.5).timeout.connect(audio_golpe_2.play)
+			else: 
+				get_tree().create_timer(0.5).timeout.connect(audio_golpe_1.play)

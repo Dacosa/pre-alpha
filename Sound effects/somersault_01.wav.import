@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cl58b74ax3or1"
+path="res://.godot/imported/somersault_01.wav-e5e15ef8497b2ab66a5d143acae9463d.sample"
+
+[deps]
+
+source_file="res://Sound effects/somersault_01.wav"
+dest_files=["res://.godot/imported/somersault_01.wav-e5e15ef8497b2ab66a5d143acae9463d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

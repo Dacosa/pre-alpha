@@ -65,6 +65,7 @@ var crouching = false
 
 
 
+
 func _ready():
 	animation_tree.active = true
 	punch_hitbox.body_entered.connect(_on_body_entered)
