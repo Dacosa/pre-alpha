@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://b8jgplaunof4n"]
+[gd_scene load_steps=92 format=3 uid="uid://b8jgplaunof4n"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_erb0d"]
 [ext_resource type="Texture2D" uid="uid://clup0f4c3sfea" path="res://Assets/AssetPack-V1/Sprite Sheets/Character Idle 48x48.png" id="2_8apwy"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://bu010pigrp6cn" path="res://UI/healthbar.tscn" id="11_pc0v2"]
 [ext_resource type="Texture2D" uid="uid://by2atsu58x4qw" path="res://Assets/Asset Pack-V3/PlayerWalk/PlayerWalk 48x48.png" id="12_pdgxh"]
 [ext_resource type="PackedScene" uid="uid://dxm81ywjdhud8" path="res://UI/victory_words_1.tscn" id="14_4ttsa"]
+[ext_resource type="AudioStream" uid="uid://wkfw4q786kw7" path="res://Sound effects/punch_long_whoosh_30.wav" id="15_texqu"]
+[ext_resource type="AudioStream" uid="uid://dokjvkt6vcqad" path="res://Sound effects/Hit damage 1.wav" id="16_74plu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5nvh0"]
 radius = 7.0
@@ -566,6 +568,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [true, true, true, true, false, false, true, true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Audio_golpe2:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_cfytn"]
 length = 0.001
@@ -697,6 +711,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio_Take_damage2:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_1atjm"]
@@ -1042,6 +1068,14 @@ shape = SubResource("CircleShape2D_g00px")
 
 [node name="Timer2" type="Timer" parent="."]
 autostart = true
+
+[node name="Audio_golpe2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_texqu")
+volume_db = -15.0
+
+[node name="Audio_Take_damage2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_74plu")
+volume_db = -10.0
 
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 

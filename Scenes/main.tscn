@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bi808k403yhv3"]
+[gd_scene load_steps=21 format=3 uid="uid://bi808k403yhv3"]
 
 [ext_resource type="Texture2D" uid="uid://dtu40hnx5ywtp" path="res://Assets/bg.jpg" id="1_vijd1"]
 [ext_resource type="PackedScene" uid="uid://dvnt6bf4o56gb" path="res://Scenes/player.tscn" id="2_rojcc"]
@@ -11,7 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://bx7mb8xvqhixr" path="res://Scenes/pick_RAT.tscn" id="7_wd8we"]
 [ext_resource type="PackedScene" uid="uid://wooqlqccvcu6" path="res://Scenes/damage_area_mole.tscn" id="8_my85j"]
 [ext_resource type="PackedScene" uid="uid://csyuh64ak4dcg" path="res://Scenes/pickable.tscn" id="10_btjhk"]
-[ext_resource type="PackedScene" uid="uid://bl1uwr3aycbua" path="res://Scenes/follower.tscn" id="12_25fdm"]
+[ext_resource type="AudioStream" uid="uid://uf4prbwyrook" path="res://Sound effects/RetroRide.wav" id="12_pai2u"]
+[ext_resource type="PackedScene" uid="uid://bl1uwr3aycbua" path="res://Scenes/follower.tscn" id="13_5khy5"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_pfknn"]
 
@@ -761,8 +762,16 @@ position = Vector2(-186, 199)
 [node name="RAT2" parent="." instance=ExtResource("7_wd8we")]
 position = Vector2(578, -292)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("12_25fdm")]
-position = Vector2(-125, 99)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_pai2u")
+volume_db = -20.0
+autoplay = true
+bus = &"filter"
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("13_5khy5")]
+position = Vector2(-612, 193)
+
 
 [connection signal="area_entered" from="Objeto/Area2D" to="Objeto" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Objeto2/Area2D" to="Objeto2" method="_on_area_2d_area_entered"]

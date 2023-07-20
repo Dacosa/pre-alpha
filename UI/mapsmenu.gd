@@ -5,6 +5,7 @@ extends Control
 @onready var mapa_2 = %Mapa2
 @onready var mapa_3 = %Mapa3
 @onready var Back = %Back
+@onready var audio_stream_player = $AudioStreamPlayer
 
 
 func _ready():
@@ -12,6 +13,7 @@ func _ready():
 	mapa_2.pressed.connect(_on_mapa_2_pressed)
 	mapa_3.pressed.connect(_on_mapa_3_pressed)
 	Back.pressed.connect(_on_Back_pressed)
+	
 
 func _on_mapa_1_pressed():
 	get_tree().change_scene_to_file("res://Scenes/main.tscn")
@@ -23,4 +25,6 @@ func _on_mapa_3_pressed():
 	get_tree().change_scene_to_file("res://Scenes/main.tscn")
 
 func _on_Back_pressed():
-	get_tree().change_scene_to_file("res://UI/main_ui.tscn")
+	self.hide()
+	get_parent().main_menu.show()
+	get_parent().audio_stream_player.bus = "Master"
