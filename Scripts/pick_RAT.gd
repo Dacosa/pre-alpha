@@ -14,9 +14,10 @@ var was_grabbed = false
 var launch_speed = Vector2(800,-400)
 var direction_x = randi_range(-1,1)
 var scale_in0 = -1
+var respawn_pos
 
 func _ready():
-	pass
+	respawn_pos = self.get_position()
 
 func _integrate_forces(_state):
 	if !was_grabbed:
@@ -35,7 +36,8 @@ func passive_off():
 	audio_lanzar.play()
 	
 	# Tiempo de vida, luego de ser botado
-	get_tree().create_timer(15).timeout.connect(queue_free)
+
+	respawn()
 
 func _on_damage_area_timer_timeout():
 	if gas_toxico.emitting == true:
@@ -68,4 +70,19 @@ func _on_direction_timer_timeout():
 	if !was_grabbed:
 		direction_change()
 
+func respawn():
 
+	var tween = get_tree().create_tween()
+	tween.tween_property($Sprite2D, "modulate", Color(0,0,0,0), 1).set_delay(5)
+
+	await get_tree().create_timer(8).timeout
+	var tween2 = get_tree().create_tween()
+	tween2.tween_property($Sprite2D, "modulate", Color(1,1,1,1), 0.5)
+	
+	linear_velocity = Vector2(0, 0)
+	rotation = 0
+	global_transform.origin = respawn_pos
+	was_grabbed = false
+	gas_toxico.emitting = false
+	lock_rotation = true
+	

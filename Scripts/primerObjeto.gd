@@ -34,16 +34,14 @@ func push(forceDir :int,dir : Vector2):
 func reset():
 	await get_tree().create_timer(3).timeout
 	var tween = get_tree().create_tween()
-	tween.tween_property($Sprite2D, "modulate", Color.RED, 2)
+	tween.tween_property($Sprite2D, "modulate", Color(0,0,0,0), 2)
 	tween.parallel().tween_property($Sprite2D, "scale", sprite_scale/4, 2)
 
 	await get_tree().create_timer(2).timeout
 	var tween2 = get_tree().create_tween()
-	tween2.tween_property($Sprite2D, "scale", sprite_scale, 0.5)
-	tween2.parallel().tween_property($Sprite2D, "offset", Vector2(0,0), 0.5)
+	tween2.tween_property($Sprite2D, "modulate", Color(1,1,1,1), 0.5)
 
-	$Sprite2D.modulate = Color.WHITE
-	$Sprite2D.offset.y = 250
+	$Sprite2D.scale = sprite_scale
 	
 	linear_velocity = Vector2(0, 0)
 	rotation = 0

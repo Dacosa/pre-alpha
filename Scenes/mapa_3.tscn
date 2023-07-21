@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cokeke7y0pn0i"]
+[gd_scene load_steps=9 format=3 uid="uid://cokeke7y0pn0i"]
 
 [ext_resource type="Texture2D" uid="uid://b2p3nuyd08ksn" path="res://Assets/Adve tileset/tiles.png" id="1_dwnk1"]
 [ext_resource type="PackedScene" uid="uid://bjgtmufb3eshx" path="res://Scenes/refrigerator.tscn" id="2_8nfql"]
 [ext_resource type="AudioStream" uid="uid://duo6ceq4wbnvg" path="res://Sound effects/Runway.wav" id="3_y6obi"]
 [ext_resource type="PackedScene" uid="uid://dvnt6bf4o56gb" path="res://Scenes/player.tscn" id="4_6jwqj"]
 [ext_resource type="PackedScene" uid="uid://b8jgplaunof4n" path="res://Scenes/player2.tscn" id="5_2dlym"]
+[ext_resource type="PackedScene" uid="uid://wooqlqccvcu6" path="res://Scenes/damage_area_mole.tscn" id="6_eli2u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xw5qx"]
 texture = ExtResource("1_dwnk1")
@@ -644,7 +645,7 @@ position = Vector2(-180, 70)
 position = Vector2(202, 70)
 
 [node name="Objeto6" parent="." instance=ExtResource("2_8nfql")]
-position = Vector2(468, 67)
+position = Vector2(458, 67)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_y6obi")
@@ -655,3 +656,147 @@ autoplay = true
 [node name="Player" parent="." instance=ExtResource("4_6jwqj")]
 z_index = 3
 position = Vector2(-509, 71)
+
+[node name="Firepit" type="Node2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="DamageArea_Mole" parent="Firepit" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-395, 160)
+
+[node name="DamageArea_Mole2" parent="Firepit" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-379, 160)
+
+[node name="DamageArea_Mole3" parent="Firepit" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-363, 160)
+
+[node name="DamageArea_Mole4" parent="Firepit" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-347, 160)
+
+[node name="DamageArea_Mole5" parent="Firepit" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-333, 160)
+
+[node name="DamageArea_Mole6" parent="Firepit" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-317, 160)
+
+[node name="DamageArea_Mole7" parent="Firepit" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-301, 160)
+
+[node name="DamageArea_Mole8" parent="Firepit" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-285, 160)
+
+[node name="Firepit2" type="Node2D" parent="."]
+z_index = 6
+position = Vector2(705, 0)
+metadata/_edit_group_ = true
+
+[node name="DamageArea_Mole" parent="Firepit2" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-395, 160)
+
+[node name="DamageArea_Mole2" parent="Firepit2" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-379, 160)
+
+[node name="DamageArea_Mole3" parent="Firepit2" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-363, 160)
+
+[node name="DamageArea_Mole4" parent="Firepit2" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-347, 160)
+
+[node name="DamageArea_Mole5" parent="Firepit2" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-333, 160)
+
+[node name="DamageArea_Mole6" parent="Firepit2" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-317, 160)
+
+[node name="DamageArea_Mole7" parent="Firepit2" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-301, 160)
+
+[node name="DamageArea_Mole8" parent="Firepit2" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-285, 160)
+
+[node name="Firepit3" type="Node2D" parent="."]
+position = Vector2(305, 0)
+metadata/_edit_group_ = true
+
+[node name="DamageArea_Mole" parent="Firepit3" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-395, 160)
+
+[node name="DamageArea_Mole2" parent="Firepit3" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-379, 160)
+
+[node name="DamageArea_Mole3" parent="Firepit3" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-363, 160)
+
+[node name="DamageArea_Mole4" parent="Firepit3" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-347, 160)
+
+[node name="DamageArea_Mole5" parent="Firepit3" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-333, 160)
+
+[node name="DamageArea_Mole6" parent="Firepit3" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-317, 160)
+
+[node name="DamageArea_Mole7" parent="Firepit3" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-301, 160)
+
+[node name="DamageArea_Mole8" parent="Firepit3" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-285, 160)
+
+[node name="Firepit4" type="Node2D" parent="."]
+position = Vector2(367, 0)
+metadata/_edit_group_ = true
+
+[node name="DamageArea_Mole" parent="Firepit4" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-395, 160)
+
+[node name="DamageArea_Mole2" parent="Firepit4" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-379, 160)
+
+[node name="DamageArea_Mole3" parent="Firepit4" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-363, 160)
+
+[node name="DamageArea_Mole4" parent="Firepit4" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-347, 160)
+
+[node name="DamageArea_Mole5" parent="Firepit4" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-333, 160)
+
+[node name="DamageArea_Mole6" parent="Firepit4" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-317, 160)
+
+[node name="DamageArea_Mole7" parent="Firepit4" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-301, 160)
+
+[node name="DamageArea_Mole8" parent="Firepit4" instance=ExtResource("6_eli2u")]
+z_index = 6
+position = Vector2(-285, 160)
