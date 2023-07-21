@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bi808k403yhv3"]
+[gd_scene load_steps=21 format=3 uid="uid://bi808k403yhv3"]
 
 [ext_resource type="Texture2D" uid="uid://dtu40hnx5ywtp" path="res://Assets/bg.jpg" id="1_vijd1"]
 [ext_resource type="PackedScene" uid="uid://dvnt6bf4o56gb" path="res://Scenes/player.tscn" id="2_rojcc"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bnea8t7vqcmj5" path="res://Scenes/Hurtbox.tscn" id="5_1ihx6"]
 [ext_resource type="PackedScene" uid="uid://bx7mb8xvqhixr" path="res://Scenes/pick_RAT.tscn" id="7_wd8we"]
 [ext_resource type="PackedScene" uid="uid://wooqlqccvcu6" path="res://Scenes/damage_area_mole.tscn" id="8_my85j"]
+[ext_resource type="PackedScene" uid="uid://cgjqv3kb6acyw" path="res://Scenes/tree.tscn" id="8_qg3di"]
 [ext_resource type="PackedScene" uid="uid://csyuh64ak4dcg" path="res://Scenes/pickable.tscn" id="10_btjhk"]
 [ext_resource type="AudioStream" uid="uid://uf4prbwyrook" path="res://Sound effects/RetroRide.wav" id="12_pai2u"]
 [ext_resource type="PackedScene" uid="uid://bl1uwr3aycbua" path="res://Scenes/follower.tscn" id="13_5khy5"]
@@ -683,28 +684,7 @@ position = Vector2(-165, 165)
 position = Vector2(165.5, -165)
 shape = SubResource("RectangleShape2D_q6vqf")
 
-[node name="Objeto3" type="RigidBody2D" parent="."]
-position = Vector2(-491, -34)
-collision_layer = 5
-collision_mask = 5
-script = ExtResource("4_h286x")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Objeto3"]
-position = Vector2(0.5, -0.500002)
-scale = Vector2(0.484375, 0.773438)
-texture = ExtResource("4_41bsd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objeto3"]
-scale = Vector2(1, 10)
-shape = SubResource("RectangleShape2D_avpn6")
-
-[node name="Area2D" parent="Objeto3" instance=ExtResource("5_1ihx6")]
-position = Vector2(-165, 165)
-
-[node name="CollisionShape2D" parent="Objeto3/Area2D" index="0"]
-position = Vector2(165.5, -165)
-shape = SubResource("RectangleShape2D_q6vqf")
+[node name="Tree" parent="." instance=ExtResource("8_qg3di")]
 
 [node name="Objeto4" type="RigidBody2D" parent="."]
 position = Vector2(440, -306)
@@ -771,12 +751,10 @@ position = Vector2(-612, 193)
 
 [connection signal="area_entered" from="Objeto/Area2D" to="Objeto" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Objeto2/Area2D" to="Objeto2" method="_on_area_2d_area_entered"]
-[connection signal="area_entered" from="Objeto3/Area2D" to="Objeto3" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Objeto4/Area2D" to="Objeto4" method="_on_area_2d_area_entered"]
 
 [editable path="Player2"]
 [editable path="Player2/Pivot/PuchHitbox"]
 [editable path="Objeto/Area2D"]
 [editable path="Objeto2/Area2D"]
-[editable path="Objeto3/Area2D"]
 [editable path="Objeto4/Area2D"]
