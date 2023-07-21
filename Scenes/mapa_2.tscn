@@ -576,6 +576,10 @@ sources/0 = SubResource("TileSetAtlasSource_xw5qx")
 
 [node name="Mapa2" type="Node2D"]
 
+[node name="Player2" parent="." instance=ExtResource("5_yl31e")]
+z_index = 4
+position = Vector2(491, -155)
+
 [node name="Terrain Tilemap" type="TileMap" parent="."]
 visibility_layer = 2
 tile_set = SubResource("TileSet_7g5ku")
@@ -602,7 +606,5 @@ volume_db = -20.0
 autoplay = true
 
 [node name="Player" parent="." instance=ExtResource("4_ovfp2")]
+z_index = 3
 position = Vector2(-635, -232)
-
-[node name="Player2" parent="." instance=ExtResource("5_yl31e")]
-position = Vector2(491, -155)
