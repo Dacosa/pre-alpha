@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgjqv3kb6acyw"]
+
+[ext_resource type="Script" path="res://Scripts/primerObjeto.gd" id="1_ub0ny"]
+[ext_resource type="Texture2D" uid="uid://bess2p3kb1xfi" path="res://Assets/Image10000_scaled_4x_pngcrushed.png" id="2_5hq6g"]
+[ext_resource type="PackedScene" uid="uid://bnea8t7vqcmj5" path="res://Scenes/Hurtbox.tscn" id="3_7f0c8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avpn6"]
+size = Vector2(20, 9.9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6vqf"]
+size = Vector2(19, 99)
+
+[node name="Tree" type="RigidBody2D"]
+position = Vector2(-491, -34)
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_ub0ny")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.5, -0.500002)
+scale = Vector2(0.484375, 0.773438)
+texture = ExtResource("2_5hq6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 10)
+shape = SubResource("RectangleShape2D_avpn6")
+
+[node name="Area2D" parent="." instance=ExtResource("3_7f0c8")]
+position = Vector2(-165, 165)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(165.5, -165)
+shape = SubResource("RectangleShape2D_q6vqf")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+
+[editable path="Area2D"]

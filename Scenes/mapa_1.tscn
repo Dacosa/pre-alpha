@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dx1v10k86phlk"]
+[gd_scene load_steps=9 format=3 uid="uid://dx1v10k86phlk"]
 
 [ext_resource type="Texture2D" uid="uid://b2p3nuyd08ksn" path="res://Assets/Adve tileset/tiles.png" id="1_a3ikj"]
 [ext_resource type="AudioStream" uid="uid://uf4prbwyrook" path="res://Sound effects/RetroRide.wav" id="2_mf3n6"]
 [ext_resource type="PackedScene" uid="uid://dvnt6bf4o56gb" path="res://Scenes/player.tscn" id="3_ox87e"]
 [ext_resource type="PackedScene" uid="uid://b8jgplaunof4n" path="res://Scenes/player2.tscn" id="4_mokpc"]
 [ext_resource type="PackedScene" uid="uid://bx7mb8xvqhixr" path="res://Scenes/pick_RAT.tscn" id="5_82x2q"]
+[ext_resource type="PackedScene" uid="uid://cgjqv3kb6acyw" path="res://Scenes/tree.tscn" id="6_mf03t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xw5qx"]
 texture = ExtResource("1_a3ikj")
@@ -606,7 +607,7 @@ position = Vector2(327, 18)
 
 [node name="RAT2" parent="." instance=ExtResource("5_82x2q")]
 z_index = 1
-position = Vector2(14, -147)
+position = Vector2(-15, -245)
 
 [node name="RAT3" parent="." instance=ExtResource("5_82x2q")]
 z_index = 1
@@ -618,8 +619,28 @@ position = Vector2(-340, 209)
 
 [node name="RAT5" parent="." instance=ExtResource("5_82x2q")]
 z_index = 1
-position = Vector2(22, 206)
+position = Vector2(-40, 209)
 
 [node name="RAT6" parent="." instance=ExtResource("5_82x2q")]
 z_index = 1
 position = Vector2(414, -288)
+
+[node name="Tree" parent="." instance=ExtResource("6_mf03t")]
+z_index = 1
+position = Vector2(-371, -21)
+
+[node name="Tree3" parent="." instance=ExtResource("6_mf03t")]
+z_index = 1
+position = Vector2(383, -322)
+
+[node name="Tree4" parent="." instance=ExtResource("6_mf03t")]
+z_index = 1
+position = Vector2(359, -8)
+
+[node name="Tree5" parent="." instance=ExtResource("6_mf03t")]
+z_index = 1
+position = Vector2(-18, -180)
+
+[node name="Tree6" parent="." instance=ExtResource("6_mf03t")]
+z_index = 1
+position = Vector2(10, 173)
