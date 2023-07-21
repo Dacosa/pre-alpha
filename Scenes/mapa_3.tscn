@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cokeke7y0pn0i"]
+[gd_scene load_steps=10 format=3 uid="uid://cokeke7y0pn0i"]
 
 [ext_resource type="Texture2D" uid="uid://b2p3nuyd08ksn" path="res://Assets/Adve tileset/tiles.png" id="1_dwnk1"]
 [ext_resource type="PackedScene" uid="uid://bjgtmufb3eshx" path="res://Scenes/refrigerator.tscn" id="2_8nfql"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dvnt6bf4o56gb" path="res://Scenes/player.tscn" id="4_6jwqj"]
 [ext_resource type="PackedScene" uid="uid://b8jgplaunof4n" path="res://Scenes/player2.tscn" id="5_2dlym"]
 [ext_resource type="PackedScene" uid="uid://wooqlqccvcu6" path="res://Scenes/damage_area_mole.tscn" id="6_eli2u"]
+[ext_resource type="PackedScene" uid="uid://csyuh64ak4dcg" path="res://Scenes/pickable.tscn" id="7_0m53s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xw5qx"]
 texture = ExtResource("1_dwnk1")
@@ -800,3 +801,7 @@ position = Vector2(-301, 160)
 [node name="DamageArea_Mole8" parent="Firepit4" instance=ExtResource("6_eli2u")]
 z_index = 6
 position = Vector2(-285, 160)
+
+[node name="pickablebox" parent="." instance=ExtResource("7_0m53s")]
+z_index = 1
+position = Vector2(-179, 10)

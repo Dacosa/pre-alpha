@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dx1v10k86phlk"]
+[gd_scene load_steps=10 format=3 uid="uid://dx1v10k86phlk"]
 
 [ext_resource type="Texture2D" uid="uid://b2p3nuyd08ksn" path="res://Assets/Adve tileset/tiles.png" id="1_a3ikj"]
 [ext_resource type="AudioStream" uid="uid://uf4prbwyrook" path="res://Sound effects/RetroRide.wav" id="2_mf3n6"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b8jgplaunof4n" path="res://Scenes/player2.tscn" id="4_mokpc"]
 [ext_resource type="PackedScene" uid="uid://bx7mb8xvqhixr" path="res://Scenes/pick_RAT.tscn" id="5_82x2q"]
 [ext_resource type="PackedScene" uid="uid://cgjqv3kb6acyw" path="res://Scenes/tree.tscn" id="6_mf03t"]
+[ext_resource type="PackedScene" uid="uid://csyuh64ak4dcg" path="res://Scenes/pickable.tscn" id="7_w70r8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xw5qx"]
 texture = ExtResource("1_a3ikj")
@@ -576,6 +577,7 @@ terrain_set_0/terrain_1/color = Color(0.247059, 0.517647, 0.0980392, 1)
 sources/0 = SubResource("TileSetAtlasSource_xw5qx")
 
 [node name="Mapa1" type="Node2D"]
+z_index = 1
 
 [node name="Player2" parent="." instance=ExtResource("4_mokpc")]
 z_index = 4
@@ -644,3 +646,7 @@ position = Vector2(-18, -180)
 [node name="Tree6" parent="." instance=ExtResource("6_mf03t")]
 z_index = 1
 position = Vector2(10, 173)
+
+[node name="pickablebox" parent="." instance=ExtResource("7_w70r8")]
+z_index = 1
+position = Vector2(-674, -173)

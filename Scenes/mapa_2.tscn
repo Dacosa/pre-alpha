@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dy1cabn02n6wc"]
+[gd_scene load_steps=10 format=3 uid="uid://dy1cabn02n6wc"]
 
 [ext_resource type="Texture2D" uid="uid://b2p3nuyd08ksn" path="res://Assets/Adve tileset/tiles.png" id="1_82ort"]
 [ext_resource type="PackedScene" uid="uid://0rh7iumjx706" path="res://Scenes/snow_tree.tscn" id="2_xsu2y"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bw6jdv6lvmob2" path="res://Sound effects/Zamming.wav" id="4_vkm88"]
 [ext_resource type="PackedScene" uid="uid://b8jgplaunof4n" path="res://Scenes/player2.tscn" id="5_yl31e"]
 [ext_resource type="PackedScene" uid="uid://bl1uwr3aycbua" path="res://Scenes/follower.tscn" id="6_yuff3"]
+[ext_resource type="PackedScene" uid="uid://csyuh64ak4dcg" path="res://Scenes/pickable.tscn" id="7_0j0cr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xw5qx"]
 texture = ExtResource("1_82ort")
@@ -612,3 +613,6 @@ position = Vector2(-635, -232)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("6_yuff3")]
 position = Vector2(-129, 27)
+
+[node name="pickablebox" parent="." instance=ExtResource("7_0j0cr")]
+position = Vector2(-28, 208)
